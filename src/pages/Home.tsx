@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import TimeDiv from "../features/layout/TimeDiv";
 import BentoCard from "../features/layout/BentoCard";
+import { CompassTool, Image, SuitcaseIcon } from "@phosphor-icons/react";
+import { HouseIcon, MailIcon } from "lucide-react";
+import SpinningGlobe from "../components/ui/SpinningGlobe";
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -22,25 +25,101 @@ export default function Home() {
       <div className='flex h-screen overflow-hidden text-white'>
         {/* Left scrollable panel of the screen*/}
         <div className='w-1/3 overflow-y-auto p-2 space-y-20 no-scrollbar'>
-          <TimeDiv className='h-48'>
-            <div className='flex flex-col justify-between w-full h-full'>
+          <TimeDiv className='relative h-48'>
+            <div className='flex flex-col relative justify-between w-full h-full'>
               <div>
-                <div className='text-center text-2xl text-white my-12 font-500'>
+                <div className='text-center text-3xl text-white my-24 font-500'>
                   {formatTime(currentTime)} <br />
                   Manila, Philippines
                 </div>
               </div>
-              <div className='w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-20 mx-auto'></div>
+              {/* Spinning Globe */}
+              <div className='absolute top-32 left-0 w-full h-full z-0 pointer-events-none justify-center flex'>
+                <div className='mx-auto'>
+                  <SpinningGlobe width={400} height={400} />
+                </div>
+              </div>
             </div>
           </TimeDiv>
 
-          <div className='space-y-4'>
-            <BentoCard className='bg-bgcards rounded-xl p-4'>Home</BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-4'>Works</BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-4'>Thoughts</BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-4'>Gallery</BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-4'>Contact</BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-4'>Call-to-action</BentoCard>
+          <div className='space-y-2 z-10'>
+            {/* Home */}
+            <BentoCard className='bg-bgcards p-3'>
+              <div className='flex items-start'>
+                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
+                  <HouseIcon className='w-6 h-6 text-white' />
+                </div>
+                <div className='flex-1'>
+                  <div className='text-white font-semibold'>Home</div>
+                  <div className='text-ptext text-sm leading-tight'>
+                    Working at the intersection of creative and digital design.
+                  </div>
+                </div>
+              </div>
+            </BentoCard>
+            <BentoCard className='bg-bgcards rounded-xl p-3'>
+              <div className='flex items-start'>
+                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
+                  <SuitcaseIcon className='w-6 h-6 text-white' />
+                </div>
+                <div className='flex-1'>
+                  <div className='text-white font-semibold'>Works</div>
+                  <div className='text-ptext text-sm leading-tight'>
+                    Several projects that I've worked on over the years.
+                  </div>
+                </div>
+              </div>
+            </BentoCard>
+            <BentoCard className='bg-bgcards rounded-xl p-3'>
+              <div className='flex items-start'>
+                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
+                  <CompassTool className='w-6 h-6 text-white' />
+                </div>
+                <div className='flex-1'>
+                  <div className='text-white font-semibold'>Design</div>
+                  <div className='text-ptext text-sm leading-tight'>
+                    A collection of my design work, UI and web design.
+                  </div>
+                </div>
+              </div>
+            </BentoCard>
+            <BentoCard className='bg-bgcards rounded-xl p-3'>
+              <div className='flex items-start'>
+                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
+                  <Image className='w-6 h-6 text-white' />
+                </div>
+                <div className='flex-1'>
+                  <div className='text-white font-semibold'>Gallery</div>
+                  <div className='text-ptext text-sm leading-tight'>
+                    A collection of my favorite images and miscellaneous spontaneous finds.
+                  </div>
+                </div>
+              </div>
+            </BentoCard>
+            <BentoCard className='bg-bgcards rounded-xl p-3'>
+              <div className='flex items-start'>
+                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
+                  <MailIcon className='w-6 h-6 text-white' />
+                </div>
+                <div className='flex-1'>
+                  <div className='text-white font-semibold'>Contact</div>
+                  <div className='text-ptext text-sm leading-tight'>
+                    Have an idea or just want to say hi? Let's connect!
+                  </div>
+                </div>
+              </div>
+            </BentoCard>
+            <BentoCard className='bg-bgcards rounded-xl p-3'>
+              <div className='flex items-start'>
+                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
+                  <CompassTool className='w-6 h-6 text-white' />
+                </div>
+                <div className='flex-1'>
+                  <div className='text-white font-semibold'>Call-to-action</div>
+                  <div className='text-ptext text-sm leading-tight'>You can also find me here.</div>
+                </div>
+              </div>
+            </BentoCard>
           </div>
         </div>
         {/* Right scrollable panel of the screen*/}
@@ -57,9 +136,7 @@ export default function Home() {
 
             {/* Middle Section */}
             <section className='grid grid-cols-3 gap-2 h-64'>
-              <BentoCard className='rounded-xl p-4 col-span-2 row-span-2'>
-                Middle Left
-              </BentoCard>
+              <BentoCard className='rounded-xl p-4 col-span-2 row-span-2'>Middle Left</BentoCard>
               <BentoCard className='rounded-xl p-4 row-span-2'>Middle Right</BentoCard>
             </section>
             <section className='grid grid-cols-3 grid-rows-2 gap-2 h-64'>

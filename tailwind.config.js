@@ -1,3 +1,5 @@
+import { parseJsonText } from 'typescript';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
@@ -12,6 +14,7 @@ export default {
         background: "#000000",
         bgcards: "#1D1D1D",
         bgoutline: "#444444",
+        ptext: "#AAAAAA",
       },
     },
   },
