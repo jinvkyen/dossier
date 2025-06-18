@@ -21,7 +21,7 @@ export default function Home() {
     <>
       <div className='flex h-screen overflow-hidden text-white'>
         {/* Left scrollable panel of the screen*/}
-        <div className='w-1/3 overflow-y-auto p-2 space-y-20'>
+        <div className='w-1/3 overflow-y-auto p-2 space-y-20 no-scrollbar'>
           <TimeDiv className='h-48'>
             <div className='flex flex-col justify-between w-full h-full'>
               <div>
