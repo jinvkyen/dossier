@@ -3,7 +3,7 @@ import TimeDiv from "../features/layout/TimeDiv";
 import BentoCard from "../features/layout/BentoCard";
 import { CompassTool, Image, SuitcaseIcon } from "@phosphor-icons/react";
 import { HouseIcon, MailIcon } from "lucide-react";
-import SpinningGlobe from "../components/ui/SpinningGlobe";
+import SpinningGlobe from "../components/SpinningGlobe";
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -28,7 +28,7 @@ export default function Home() {
           <TimeDiv className='relative h-48'>
             <div className='flex flex-col relative justify-between w-full h-full'>
               <div>
-                <div className='text-center text-3xl text-white my-24 font-500'>
+                <div className='font-sf text-center text-3xl text-white my-24 font-500'>
                   {formatTime(currentTime)} <br />
                   Manila, Philippines
                 </div>
@@ -36,7 +36,7 @@ export default function Home() {
               {/* Spinning Globe */}
               <div className='absolute top-32 left-0 w-full h-full z-0 pointer-events-none justify-center flex'>
                 <div className='mx-auto'>
-                  <SpinningGlobe width={400} height={400} />
+                  <SpinningGlobe width={500} height={500} />
                 </div>
               </div>
             </div>
@@ -44,66 +44,66 @@ export default function Home() {
 
           <div className='space-y-2 z-10'>
             {/* Home */}
-            <BentoCard className='bg-bgcards p-3'>
+            <BentoCard className='bg-bgcards p-2'>
               <div className='flex items-start'>
                 <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
                   <HouseIcon className='w-6 h-6 text-white' />
                 </div>
                 <div className='flex-1'>
                   <div className='text-white font-semibold'>Home</div>
-                  <div className='text-ptext text-sm leading-tight'>
+                  <div className='text-ptext text-xs leading-tight'>
                     Working at the intersection of creative and digital design.
                   </div>
                 </div>
               </div>
             </BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-3'>
+            <BentoCard className='bg-bgcards p-2'>
               <div className='flex items-start'>
                 <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
                   <SuitcaseIcon className='w-6 h-6 text-white' />
                 </div>
                 <div className='flex-1'>
                   <div className='text-white font-semibold'>Works</div>
-                  <div className='text-ptext text-sm leading-tight'>
+                  <div className='text-ptext text-xs leading-tight'>
                     Several projects that I've worked on over the years.
                   </div>
                 </div>
               </div>
             </BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-3'>
+            <BentoCard className='bg-bgcards p-2'>
               <div className='flex items-start'>
                 <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
                   <CompassTool className='w-6 h-6 text-white' />
                 </div>
                 <div className='flex-1'>
                   <div className='text-white font-semibold'>Design</div>
-                  <div className='text-ptext text-sm leading-tight'>
+                  <div className='text-ptext text-xs leading-tight'>
                     A collection of my design work, UI and web design.
                   </div>
                 </div>
               </div>
             </BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-3'>
+            <BentoCard className='bg-bgcards p-2'>
               <div className='flex items-start'>
                 <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
                   <Image className='w-6 h-6 text-white' />
                 </div>
                 <div className='flex-1'>
                   <div className='text-white font-semibold'>Gallery</div>
-                  <div className='text-ptext text-sm leading-tight'>
+                  <div className='text-ptext text-xs leading-tight'>
                     A collection of my favorite images and miscellaneous spontaneous finds.
                   </div>
                 </div>
               </div>
             </BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-3'>
+            <BentoCard className='bg-bgcards p-2'>
               <div className='flex items-start'>
                 <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
                   <MailIcon className='w-6 h-6 text-white' />
                 </div>
                 <div className='flex-1'>
                   <div className='text-white font-semibold'>Contact</div>
-                  <div className='text-ptext text-sm leading-tight'>
+                  <div className='text-ptext text-xs leading-tight'>
                     Have an idea or just want to say hi? Let's connect!
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export default function Home() {
                 </div>
                 <div className='flex-1'>
                   <div className='text-white font-semibold'>Call-to-action</div>
-                  <div className='text-ptext text-sm leading-tight'>You can also find me here.</div>
+                  <div className='text-ptext text-xs leading-tight'>You can also find me here.</div>
                 </div>
               </div>
             </BentoCard>

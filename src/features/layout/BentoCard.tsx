@@ -8,7 +8,7 @@ type BentoCardProps = {
 const BentoCard = ({ children, className = "" }: BentoCardProps) => (
   <div
     className={`
-      bg-bgcards backdrop-blur-sm border border-bgcards/50 rounded-xl
+      font-inter bg-bgcards backdrop-blur-sm border border-bgcards/50 rounded-xl
       transition-all duration-300 ease-out border-solid border-1 border-bgoutline
       ${className}
     `}>
