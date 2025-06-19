@@ -1,5 +1,7 @@
 import BigBentoCard from "../features/layout/BigBentoCard";
 import LeftSidePanel from "../features/layout/LeftSidePanel";
+import ASCIIText from "../features/ASCIIText";
+import { HandWaving } from "@phosphor-icons/react";
 
 export default function Home() {
   return (
@@ -16,16 +18,35 @@ export default function Home() {
               {/* Left: vertical stack of two squares */}
               <div className='flex flex-col gap-2'>
                 <div className='h-full w-[400px]'>
-                  <BigBentoCard className='w-full h-full'>Top Left 1</BigBentoCard>
+                  <BigBentoCard className='w-full h-full'>
+                    <ASCIIText enableWaves={true} asciiFontSize={3} textFontSize={25} textColor='#ffffff' />
+                  </BigBentoCard>
                 </div>
                 <div className='h-full w-[400px]'>
-                  <BigBentoCard className='w-full h-full'>Top Left 2</BigBentoCard>
+                  <BigBentoCard className='w-full h-full'>
+                    <div className='flex flex-col p-12 space-y-2'>
+                      <div className='w-12 h-12 bg-bgoutline rounded-xl flex items-center justify-center mr-4'>
+                        <HandWaving size={25} className='text-white' />
+                      </div>
+                      <p className='font-semibold'>
+                        <span className='text-3xl'>Hello, I'm Ayen </span>
+                        <span className='text-md'>(jinvkyen)</span>
+                      </p>
+                      <p className='text-md text-ptext leading-snug'>
+                        A front-end developer geek with the dexterity to bring user interfaces and experiences to life.
+                        I'm new to the dev industry, and support would be greatly appreciated as I pursue my journey as
+                        an aspiring software developer.
+                      </p>
+                    </div>
+                  </BigBentoCard>
                 </div>
               </div>
 
               {/* Right: fills the rest */}
               <div className='flex-1'>
-                <BigBentoCard className='w-full h-full'>Top Right (full height)</BigBentoCard>
+                <img
+                  src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg'
+                  className='w-full h-full rounded-xl border border-bgoutline object-cover'></img>
               </div>
             </section>
 

@@ -13,10 +13,9 @@ export default {
       colors: {
         background: "#000000",
         bgcards: "#1D1D1D",
-        bgoutline: "#555555",
+        bgoutline: "#444444",
         bghover: "#555555",
         ptext: "#AAAAAA",
-        buttoncards: "#444444",
       },
     },
   },

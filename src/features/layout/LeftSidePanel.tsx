@@ -38,7 +38,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faHouse} className='text-2xl' />,
       description: "Working at the intersection of creative and digital design.",
       link: "/",
-      onhover: "/assets/me.jfif",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg",
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faFile} className='text-2xl' />,
       description: "Several projects that I've worked on improving my skills.",
       link: "/works",
-      onhover: "/assets/me.jfif",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750359019/web-portfolio_tblfbw.png",
     },
     {
       id: 3,
@@ -54,7 +54,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faSwatchbook} className='text-2xl' />,
       description: "A collection of my design work, UI and web design.",
       link: "/design",
-      onhover: "/assets/me.jfif",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/MacBook-_13_xyd6hf.png",
     },
     {
       id: 4,
@@ -62,7 +62,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faCertificate} className='text-2xl' />,
       description: "A collection of my certifications and achievements in various technical fields.",
       link: "/certifications",
-      onhover: "/assets/me.jfif",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1744389969/fcc_slh118.png",
     },
     {
       id: 5,
@@ -70,7 +70,8 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faImage} className='text-2xl' />,
       description: "A collection of my favorite images and miscellaneous spontaneous finds.",
       link: "/gallery",
-      onhover: "/assets/me.jfif",
+      onhover:
+        "https://res.cloudinary.com/diolcqc1f/image/upload/v1750359065/75ad88b0-4570-4559-b567-341726d6f210_huary4.jpg",
     },
     {
       id: 6,
@@ -78,7 +79,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faEnvelope} className='text-2xl' />,
       description: "Have an idea or just want to say hi? Let's get connected!",
       link: "/contact",
-      onhover: "/assets/me.jfif",
+      onhover: "https://cdn.forthepeoplecollective.org/1662551863428.jpg",
     },
   ];
   return (
