@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState, useEffect, type JSX } from "react";
 import TimeDiv from "../features/layout/TimeDiv";
 import BentoCard from "../features/layout/BentoCard";
 import SpinningGlobe from "../components/SpinningGlobe";
 import BigBentoCard from "../features/layout/BigBentoCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faFile } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faFile, faSwatchbook, faImage, faEnvelope, faCertificate } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
 export default function Home() {
   const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -21,9 +24,56 @@ export default function Home() {
       hour12: true,
     });
   };
+
+  // function to key map the BentoCard with the icons and descriptions
+  const bentoCards: Array<{
+    id: number;
+    title: string;
+    icon: JSX.Element;
+    description: string;
+    link?: string;
+  }> = [
+    {
+      id: 1,
+      title: "Home",
+      icon: <FontAwesomeIcon icon={faHouse} className='text-2xl' />,
+      description: "Working at the intersection of creative and digital design.",
+      link: "/home",
+    },
+    {
+      id: 2,
+      title: "Works",
+      icon: <FontAwesomeIcon icon={faFile} className='text-2xl' />,
+      description: "Several projects that I've worked on improving my skills.",
+    },
+    {
+      id: 3,
+      title: "Design",
+      icon: <FontAwesomeIcon icon={faSwatchbook} className='text-2xl' />,
+      description: "A collection of my design work, UI and web design.",
+    },
+    {
+      id: 4,
+      title: "Gallery",
+      icon: <FontAwesomeIcon icon={faImage} className='text-2xl' />,
+      description: "A collection of my favorite images and miscellaneous spontaneous finds.",
+    },
+    {
+      id: 5,
+      title: "Contact",
+      icon: <FontAwesomeIcon icon={faEnvelope} className='text-2xl' />,
+      description: "Have an idea or just want to say hi? Let's connect!",
+    },
+    {
+      id: 6,
+      title: "Certifications",
+      icon: <FontAwesomeIcon icon={faCertificate} className='text-2xl' />,
+      description: "A collection of my certifications and achievements in various technical fields.",
+    },
+  ];
   return (
     <>
-      <div className='flex h-screen overflow-hidden text-white'>
+      <div className='flex h-screen overflow-hidden text-white scroll-smooth'>
         {/* Left scrollable panel of the screen*/}
         <div className='w-1/3 overflow-y-auto p-2 space-y-20 no-scrollbar'>
           <TimeDiv className='relative h-48'>
@@ -31,7 +81,7 @@ export default function Home() {
               <div>
                 <div className='text-center text-2xl text-white my-24 font-500'>
                   {formatTime(currentTime)} <br />
-                  Manila, Philippines
+                  Manila, The Philippines
                 </div>
               </div>
               {/* Spinning Globe */}
@@ -43,74 +93,27 @@ export default function Home() {
             </div>
           </TimeDiv>
 
-          <div className='space-y-2 z-10'>
-            {/* Home */}
-            <BentoCard className='bg-bgcards p-3'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
-                  <FontAwesomeIcon icon={faHouse} />
-                </div>
-                <div className='flex-1'>
-                  <div className='text-white font-semibold leading-tight'>Home</div>
-                  <div className='text-ptext text-xs'>Working at the intersection of creative and digital design.</div>
-                </div>
-              </div>
-            </BentoCard>
-            <BentoCard className='bg-bgcards p-3'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
-                  <FontAwesomeIcon icon={faFile} />
-                </div>
-                <div className='flex-1'>
-                  <div className='text-white font-semibold leading-tight'>Works</div>
-                  <div className='text-ptext text-xs'>Several projects that I've worked on over the years.</div>
-                </div>
-              </div>
-            </BentoCard>
-            <BentoCard className='bg-bgcards p-3'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'></div>
-                <div className='flex-1'>
-                  <div className='text-white font-semibold leading-tight'>Design</div>
-                  <div className='text-ptext text-xs'>A collection of my design work, UI and web design.</div>
-                </div>
-              </div>
-            </BentoCard>
-            <BentoCard className='bg-bgcards p-3'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'></div>
-                <div className='flex-1'>
-                  <div className='text-white font-semibold leading-tight'>Gallery</div>
-                  <div className='text-ptext text-xs'>
-                    A collection of my favorite images and miscellaneous spontaneous finds.
+          {/* Buttons of cards */}
+          <div className='z-10'>
+            {bentoCards.map((card: any) => (
+              <Link to={card.link} key={card.id} className='no-underline'>
+                <BentoCard className='bg-bgcards p-3 mb-2'>
+                  <div className='flex items-start'>
+                    <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
+                      {card.icon}
+                    </div>
+                    <div className='flex-1 text-start mr-12'>
+                      <span className='text-white font-semibold leading-tight'>{card.title}</span>
+                      <p className='text-ptext text-xs'>{card.description}</p>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </BentoCard>
-            <BentoCard className='bg-bgcards p-3'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'></div>
-                <div className='flex-1'>
-                  <div className='text-white font-semibold leading-tight'>Contact</div>
-                  <div className='text-ptext text-xs'>Have an idea or just want to say hi? Let's connect!</div>
-                </div>
-              </div>
-            </BentoCard>
-            <BentoCard className='bg-bgcards rounded-xl p-3'>
-              <div className='flex items-start'>
-                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
-                  
-                </div>
-                <div className='flex-1'>
-                  <div className='text-white font-semibold leading-tight'>Call-to-action</div>
-                  <div className='text-ptext text-xs'>You can also find me here.</div>
-                </div>
-              </div>
-            </BentoCard>
+                </BentoCard>
+              </Link>
+            ))}
           </div>
         </div>
         {/* Right scrollable panel of the screen*/}
-        <div className='w-full overflow-y-auto'>
+        <div className='w-full overflow-y-auto scroll-smooth'>
           <div className='min-h-screen pt-2 pr-2 pb-2 grid gap-2 grid-rows-[auto_auto_auto]'>
             {/* Top Section */}
             <section className='grid grid-cols-2 gap-2 min-h-screen'>

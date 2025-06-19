@@ -65,32 +65,31 @@ export default function SpinningGlobe({ width = 500, height = 500 }: { width?: n
   }, []);
 
   return (
-      <Globe
-        ref={globeEl}
-        width={width}
-        height={height}
-        backgroundColor='rgba(0,0,0,0)'
-        showGlobe={true}
-        globeMaterial={{
-          transparent: true,
-          opacity: 0.1,
-          color: "#000000",
-        }}
-        showAtmosphere={true}
-        atmosphereColor='#ffffff'
-        atmosphereAltitude={0.15}
-        pointsData={dots}
-        pointLat='lat'
-        pointLng='lng'
-        pointColor='color'
-        pointAltitude={0.005}
-        pointRadius={(d: DotPoint) => d.size || 0.2}
-        pointResolution={10}
-        pointsMerged={false}
-        rendererConfig={{
-          antialias: true,
-          alpha: true,
-        }}
-      />
+    <Globe
+      ref={globeEl}
+      width={width}
+      height={height}
+      backgroundColor='rgba(0,0,0,0)'
+      showGlobe={true}
+      globeMaterial={{
+        transparent: true,
+        opacity: 0.1,
+        color: "#000000",
+      }}
+      showAtmosphere={true}
+      atmosphereColor='#ffffff'
+      atmosphereAltitude={0.15}
+      pointsData={dots}
+      pointLat='lat'
+      pointLng='lng'
+      pointColor='color'
+      pointAltitude={0.005}
+      pointRadius='size'
+      pointResolution={10}
+      rendererConfig={{
+        antialias: true,
+        alpha: true,
+      }}
+    />
   );
 }

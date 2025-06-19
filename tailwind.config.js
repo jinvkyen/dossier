@@ -14,6 +14,7 @@ export default {
         background: "#000000",
         bgcards: "#1D1D1D",
         bgoutline: "#555555",
+        bghover: "#555555",
         ptext: "#AAAAAA",
       },
     },

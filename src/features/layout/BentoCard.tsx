@@ -6,16 +6,15 @@ type BentoCardProps = {
   hover?: boolean;
 };
 const BentoCard = ({ children, className = "", hover = true }: BentoCardProps) => (
-  <div
-    className={`
-      bg-bgcards backdrop-blur-sm border border-bgcards/50 rounded-xl
+  <button
+    className={
+      `
+      bg-bgcards backdrop-blur-sm border border-bgcards/50 rounded-xl w-full
       transition-all duration-300 ease-out border-solid border-1 border-bgoutline
       ${className}
-    `
-    + (hover ? " hover:scale-105 hover:shadow-lg" : "")
-
+    ` + (hover ? " hover:bg-bghover cursor-pointer" : "")
     }>
     {children}
-  </div>
+  </button>
 );
 export default BentoCard;
