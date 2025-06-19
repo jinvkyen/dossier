@@ -16,6 +16,7 @@ export default {
         bgoutline: "#555555",
         bghover: "#555555",
         ptext: "#AAAAAA",
+        buttoncards: "#444444",
       },
     },
   },

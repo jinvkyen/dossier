@@ -30,6 +30,7 @@ export default function LeftSidePanel() {
     icon: JSX.Element;
     description: string;
     link?: string;
+    onhover: string;
   }> = [
     {
       id: 1,
@@ -37,6 +38,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faHouse} className='text-2xl' />,
       description: "Working at the intersection of creative and digital design.",
       link: "/",
+      onhover: "/assets/me.jfif",
     },
     {
       id: 2,
@@ -44,6 +46,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faFile} className='text-2xl' />,
       description: "Several projects that I've worked on improving my skills.",
       link: "/works",
+      onhover: "/assets/me.jfif",
     },
     {
       id: 3,
@@ -51,6 +54,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faSwatchbook} className='text-2xl' />,
       description: "A collection of my design work, UI and web design.",
       link: "/design",
+      onhover: "/assets/me.jfif",
     },
     {
       id: 4,
@@ -58,6 +62,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faCertificate} className='text-2xl' />,
       description: "A collection of my certifications and achievements in various technical fields.",
       link: "/certifications",
+      onhover: "/assets/me.jfif",
     },
     {
       id: 5,
@@ -65,6 +70,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faImage} className='text-2xl' />,
       description: "A collection of my favorite images and miscellaneous spontaneous finds.",
       link: "/gallery",
+      onhover: "/assets/me.jfif",
     },
     {
       id: 6,
@@ -72,6 +78,7 @@ export default function LeftSidePanel() {
       icon: <FontAwesomeIcon icon={faEnvelope} className='text-2xl' />,
       description: "Have an idea or just want to say hi? Let's get connected!",
       link: "/contact",
+      onhover: "/assets/me.jfif",
     },
   ];
   return (
@@ -96,12 +103,23 @@ export default function LeftSidePanel() {
       {/* Buttons of cards */}
       <div className='z-10'>
         {bentoCards.map((card: any) => (
-          <Link to={card.link} key={card.id} className='no-underline'>
+          <Link to={card.link} key={card.id} className='group no-underline'>
             <BentoCard className='bg-bgcards p-3 mb-2'>
               <div className='flex items-start'>
-                <div className='w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4'>
-                  {card.icon}
+                {/* Icon with hover overlay image */}
+                <div className='relative group w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
+                  <div className='relative z-10 group-hover:opacity-0 transition duration-300'>{card.icon}</div>
+                  <img
+                    src={card.onhover}
+                    alt={`${card.title} hover`}
+                    className='
+                absolute bottom-[-100%] left-0 w-full h-full object-cover
+                group-hover:bottom-0 transition-all duration-500 ease-out
+              '
+                  />
                 </div>
+
+                {/* Text */}
                 <div className='flex-1 text-start mr-12'>
                   <span className='text-white font-semibold leading-tight'>{card.title}</span>
                   <p className='text-ptext text-xs'>{card.description}</p>
