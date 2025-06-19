@@ -13,7 +13,7 @@ export default {
       colors: {
         background: "#000000",
         bgcards: "#1D1D1D",
-        bgoutline: "#444444",
+        bgoutline: "#555555",
         ptext: "#AAAAAA",
       },
     },

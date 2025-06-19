@@ -15,7 +15,7 @@ export default function SpinningGlobe({ width = 500, height = 500 }: { width?: n
   const globeEl = useRef<any>(null);
 
   // Create dots with better distribution for a more uniform appearance
-  const dots: DotPoint[] = Array.from({ length: 1500 }, () => {
+  const dots: DotPoint[] = Array.from({ length: 1200 }, () => {
     const theta = Math.random() * 2 * Math.PI;
     const phi = Math.acos(2 * Math.random() - 1);
 
@@ -33,7 +33,7 @@ export default function SpinningGlobe({ width = 500, height = 500 }: { width?: n
     const globe = globeEl.current;
 
     // Set initial camera position
-    globe.pointOfView({ lat: 50, lng: 0, altitude: 2.5 }, 0);
+    globe.pointOfView({ lat: 60, lng: 0, altitude: 2.5 }, 0);
 
     const controls = globe.controls();
     controls.enableDamping = true;
