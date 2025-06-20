@@ -60,7 +60,7 @@ export default function LeftSidePanel() {
       id: 4,
       title: "Certifications",
       icon: <FontAwesomeIcon icon={faCertificate} className='text-lg' />,
-      description: "A collection of my certifications and achievements in various technical fields.",
+      description: "A collection of my certifications in various technical fields.",
       link: "/certifications",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1744389969/fcc_slh118.png",
     },
@@ -68,7 +68,7 @@ export default function LeftSidePanel() {
       id: 5,
       title: "Gallery",
       icon: <FontAwesomeIcon icon={faImage} className='text-lg' />,
-      description: "A collection of my favorite images and miscellaneous spontaneous finds.",
+      description: "A collection of my miscellaneous spontaneous finds.",
       link: "/gallery",
       onhover:
         "https://res.cloudinary.com/diolcqc1f/image/upload/v1750359065/75ad88b0-4570-4559-b567-341726d6f210_huary4.jpg",
@@ -83,7 +83,7 @@ export default function LeftSidePanel() {
     },
   ];
   return (
-    <div className='w-1/3 overflow-y-auto p-2 space-y-20 no-scrollbar'>
+    <div className='overflow-y-auto p-2 space-y-0 md:space-y-20 no-scrollbar'>
       <TimeDiv className='relative h-48'>
         <div className='flex flex-col relative justify-between w-full h-full'>
           <div>
@@ -93,7 +93,7 @@ export default function LeftSidePanel() {
             </div>
           </div>
           {/* Spinning Globe */}
-          <div className='absolute top-32 left-0 w-full h-full z-0 pointer-events-none justify-center flex'>
+          <div className='absolute top-24 md:top-32 left-0 w-full h-full z-0 pointer-events-none justify-center flex'>
             <div className='mx-auto'>
               <SpinningGlobe width={500} height={500} />
             </div>
@@ -121,7 +121,7 @@ export default function LeftSidePanel() {
                 </div>
 
                 {/* Text */}
-                <div className='flex-1 text-start mr-12'>
+                <div className='flex-1 text-start md:mr-12'>
                   <span className='text-white font-semibold leading-tight'>{card.title}</span>
                   <p className='text-ptext text-xs'>{card.description}</p>
                 </div>
