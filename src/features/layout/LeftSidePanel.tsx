@@ -35,7 +35,7 @@ export default function LeftSidePanel() {
     {
       id: 1,
       title: "Home",
-      icon: <FontAwesomeIcon icon={faHouse} className='text-2xl' />,
+      icon: <FontAwesomeIcon icon={faHouse} className='text-lg' />,
       description: "Working at the intersection of creative and digital design.",
       link: "/",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg",
@@ -43,7 +43,7 @@ export default function LeftSidePanel() {
     {
       id: 2,
       title: "Works",
-      icon: <FontAwesomeIcon icon={faFile} className='text-2xl' />,
+      icon: <FontAwesomeIcon icon={faFile} className='text-lg' />,
       description: "Several projects that I've worked on improving my skills.",
       link: "/works",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750359019/web-portfolio_tblfbw.png",
@@ -51,7 +51,7 @@ export default function LeftSidePanel() {
     {
       id: 3,
       title: "Design",
-      icon: <FontAwesomeIcon icon={faSwatchbook} className='text-2xl' />,
+      icon: <FontAwesomeIcon icon={faSwatchbook} className='text-lg' />,
       description: "A collection of my design work, UI and web design.",
       link: "/design",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/MacBook-_13_xyd6hf.png",
@@ -59,7 +59,7 @@ export default function LeftSidePanel() {
     {
       id: 4,
       title: "Certifications",
-      icon: <FontAwesomeIcon icon={faCertificate} className='text-2xl' />,
+      icon: <FontAwesomeIcon icon={faCertificate} className='text-lg' />,
       description: "A collection of my certifications and achievements in various technical fields.",
       link: "/certifications",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1744389969/fcc_slh118.png",
@@ -67,7 +67,7 @@ export default function LeftSidePanel() {
     {
       id: 5,
       title: "Gallery",
-      icon: <FontAwesomeIcon icon={faImage} className='text-2xl' />,
+      icon: <FontAwesomeIcon icon={faImage} className='text-lg' />,
       description: "A collection of my favorite images and miscellaneous spontaneous finds.",
       link: "/gallery",
       onhover:
@@ -76,7 +76,7 @@ export default function LeftSidePanel() {
     {
       id: 6,
       title: "Contact",
-      icon: <FontAwesomeIcon icon={faEnvelope} className='text-2xl' />,
+      icon: <FontAwesomeIcon icon={faEnvelope} className='text-lg' />,
       description: "Have an idea or just want to say hi? Let's get connected!",
       link: "/contact",
       onhover: "https://cdn.forthepeoplecollective.org/1662551863428.jpg",
@@ -87,7 +87,7 @@ export default function LeftSidePanel() {
       <TimeDiv className='relative h-48'>
         <div className='flex flex-col relative justify-between w-full h-full'>
           <div>
-            <div className='text-center text-2xl text-white my-24 font-500'>
+            <div className='text-center text-2xl text-white my-24 font-500 '>
               {formatTime(currentTime)} <br />
               Manila, The Philippines
             </div>

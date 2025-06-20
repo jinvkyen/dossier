@@ -2,6 +2,7 @@ import BigBentoCard from "../features/layout/BigBentoCard";
 import LeftSidePanel from "../features/layout/LeftSidePanel";
 import ASCIIText from "../features/ASCIIText";
 import { HandWaving } from "@phosphor-icons/react";
+import IconCard from "../components/IconCard";
 
 export default function Home() {
   return (
@@ -19,20 +20,18 @@ export default function Home() {
               <div className='flex flex-col gap-2'>
                 <div className='h-full w-[400px]'>
                   <BigBentoCard className='w-full h-full'>
-                    <ASCIIText enableWaves={true} asciiFontSize={3} textFontSize={25} textColor='#ffffff' />
+                    <ASCIIText enableWaves={true} asciiFontSize={3} textFontSize={18} textColor='#ffffff' />
                   </BigBentoCard>
                 </div>
                 <div className='h-full w-[400px]'>
                   <BigBentoCard className='w-full h-full'>
                     <div className='flex flex-col p-12 space-y-2'>
-                      <div className='w-12 h-12 bg-bgoutline rounded-xl flex items-center justify-center mr-4'>
-                        <HandWaving size={25} className='text-white' />
-                      </div>
+                      <IconCard icon={<HandWaving className='text-white text-2xl' />} />
                       <p className='font-semibold'>
-                        <span className='text-3xl'>Hello, I'm Ayen </span>
+                        <span className='text-3xl'>Hi, I'm Ayen </span>
                         <span className='text-md'>(jinvkyen)</span>
                       </p>
-                      <p className='text-md text-ptext leading-snug'>
+                      <p className='text-md text-ptext'>
                         A front-end developer geek with the dexterity to bring user interfaces and experiences to life.
                         I'm new to the dev industry, and support would be greatly appreciated as I pursue my journey as
                         an aspiring software developer.
