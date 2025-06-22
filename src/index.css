@@ -11,3 +11,24 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;     /* Firefox */
   }
+
+  .scroll-velocity-vignette::before,
+.scroll-velocity-vignette::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 3rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.scroll-velocity-vignette::before {
+  left: 0;
+  background: linear-gradient(to right, black, transparent);
+}
+
+.scroll-velocity-vignette::after {
+  right: 0;
+  background: linear-gradient(to left, black, transparent);
+}
