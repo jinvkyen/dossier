@@ -13,8 +13,8 @@ export default function Home() {
           <div className='flex flex-col gap-2 lg:order-1 order-2 lg:w-[400px]'>
             {/* Moving Name */}
             <div className='h-full order-3 lg:order-1'>
-              <BigBentoCard className='h-full flex overflow-hidden items-center'>
-                <div className='flex flex-col w-[300px] md:w-[400px] h-[100px] lg:w-full justify-center items-center text-center'>
+              <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
+                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] md:w-[400px] h-[100px] lg:w-full'>
                   <ScrollVelocity
                     texts={["jin`vk`yen — Ayen Tipon —"]}
                     velocity={70}
@@ -25,14 +25,14 @@ export default function Home() {
             </div>
 
             {/* Intro Card */}
-            <div className='w-full h-full lg:h-1/2 order-2 lg:order-2'>
-              <BigBentoCard className='w-full h-full'>
-                <div className='flex flex-col p-12 items-start justify-center'>
+            <div className='w-full h-full order-2 lg:order-2'>
+              <BigBentoCard className='h-full flex justify-center items-center'>
+                <div className='flex flex-col p-6 space-y-2'>
                   <IconCard icon={<HandWaving className='text-white text-2xl' />} />
                   <p className='font-semibold'>
                     <span className='text-3xl'>Hi, I'm Ayen </span>
                   </p>
-                  <p className='text-balance text-ptext'>
+                  <p className='text-balance text-ptext text-[clamp(0.2rem,3.5rem)]'>
                     A front-end developer geek with the dexterity to bring user interfaces and experiences to life. I'm
                     new to the dev industry, and support would be greatly appreciated as I pursue my journey as an
                     aspiring software developer.

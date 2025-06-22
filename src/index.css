@@ -12,23 +12,30 @@
     scrollbar-width: none;     /* Firefox */
   }
 
+  .scroll-velocity-vignette {
+    position: relative;
+    overflow: hidden;
+  }
+
   .scroll-velocity-vignette::before,
-.scroll-velocity-vignette::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 3rem;
-  pointer-events: none;
-  z-index: 10;
-}
+  .scroll-velocity-vignette::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 6rem;
+    z-index: 100;
+    pointer-events: none;
+  }
 
-.scroll-velocity-vignette::before {
-  left: 0;
-  background: linear-gradient(to right, black, transparent);
-}
+  .scroll-velocity-vignette::before {
+    left: 0;
+    background: linear-gradient(to right, rgb(29, 29, 29), transparent);
+  }
 
-.scroll-velocity-vignette::after {
-  right: 0;
-  background: linear-gradient(to left, black, transparent);
-}
+  .scroll-velocity-vignette::after {
+    right: 0;
+    background: linear-gradient(to left, rgb(29, 29, 29), transparent);
+  }
+
+
