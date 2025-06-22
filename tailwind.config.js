@@ -26,12 +26,12 @@ export default {
       },
     },
     screens: {
-      xs: "400px", // New custom size
-      sm: "640px", // Tailwind default
-      md: "768px", // Tailwind default
-      lg: "1024px", // Tailwind default
-      xl: "1280px", // Tailwind default
-      "2xl": "1536px", // Tailwind default
+      xs: "400px",
+      sm: "640px",
+      md: "768px",
+      lg: "1025px",
+      xl: "1208px",
+      "2xl": "1536px",
     },
   },
   plugins: [],

@@ -128,7 +128,7 @@ export default function Menu() {
                 {/* Text */}
                 <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-12 leading-tight'>
                   <h1 className='text-white font-semibold'>{card.title}</h1>
-                  <p className='text-ptext text-xs leading-none'>{card.description}</p>
+                  <p className='text-ptext text-xs leading-tight'>{card.description}</p>
                 </div>
               </div>
             </BentoCard>

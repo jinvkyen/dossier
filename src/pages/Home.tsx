@@ -73,7 +73,7 @@ export default function Home() {
         {/* Middle and Bottom Sections */}
         <section className='flex flex-col gap-2 h-auto lg:h-full'>
           {/* Middle Section A */}
-          <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 h-72'>
+          <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 h-full lg:h-72'>
             <BigBentoCard className='lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden'>
               <Carousel />
             </BigBentoCard>
