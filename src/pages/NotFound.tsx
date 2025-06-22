@@ -1,4 +1,4 @@
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 import Button from "../components/Button";
 import BigBentoCard from "../designs/BigBentoCard";
 import { ScrollVelocity } from "../features/ScrollVelocity";
@@ -34,7 +34,7 @@ export default function NotFound() {
                   <div className='flex justify-center items-center'>
                     <Link to={"/"}>
                       <Button>
-                        Back to Home <ArrowRight size={20} />
+                        Back to home <ArrowRightIcon size={20} className='ml-1' />
                       </Button>
                     </Link>
                   </div>

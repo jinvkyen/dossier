@@ -4,7 +4,7 @@ import BentoCard from "../designs/BentoCard";
 import SpinningGlobe from "../designs/SpinningGlobe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TimeDiv from "../designs/TimeDiv";
-import { faHouse, faFile, faSwatchbook, faImage, faEnvelope, faCertificate } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -77,15 +77,6 @@ export default function Menu() {
     },
     {
       id: 5,
-      title: "Gallery",
-      icon: <FontAwesomeIcon icon={faImage} className='text-lg' />,
-      description: "A collection of my miscellaneous spontaneous finds.",
-      link: "/gallery",
-      onhover:
-        "https://res.cloudinary.com/diolcqc1f/image/upload/v1750359065/75ad88b0-4570-4559-b567-341726d6f210_huary4.jpg",
-    },
-    {
-      id: 6,
       title: "Contact",
       icon: <FontAwesomeIcon icon={faEnvelope} className='text-lg' />,
       description: "Have an idea or just want to say hi? Let's get connected!",
@@ -101,12 +92,11 @@ export default function Menu() {
       animate='show'>
       <TimeDiv className='relative h-48'>
         <div className='flex flex-col relative justify-between w-full h-full'>
-          <div>
-            <div className='text-center text-2xl text-white my-24 font-500 '>
-              {formatTime(currentTime)} <br />
-              Manila, The Philippines
-            </div>
+          <div className='text-center text-2xl text-white my-24 font-500 font-inter'>
+            {formatTime(currentTime)} <br />
+            Manila, The Philippines
           </div>
+
           {/* Spinning Globe */}
           <div className='absolute top-24 md:top-32 left-0 w-full h-full z-0 pointer-events-none justify-center flex'>
             <div className='mx-auto'>
@@ -136,9 +126,9 @@ export default function Menu() {
                 </div>
 
                 {/* Text */}
-                <div className='flex-1 text-start md:mr-12'>
-                  <span className='text-white font-semibold leading-tight'>{card.title}</span>
-                  <p className='text-ptext text-xs'>{card.description}</p>
+                <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-12 leading-tight'>
+                  <h1 className='text-white font-semibold'>{card.title}</h1>
+                  <p className='text-ptext text-xs leading-none'>{card.description}</p>
                 </div>
               </div>
             </BentoCard>
