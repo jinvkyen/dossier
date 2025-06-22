@@ -6,6 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TimeDiv from "../designs/TimeDiv";
 import { faHouse, faFile, faSwatchbook, faImage, faEnvelope, faCertificate } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+
+const container: Variants = {
+  hidden: { opacity: 0, x: -20 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring" as const, damping: 50, stiffness: 100 },
+  },
+};
 
 export default function Menu() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -83,7 +94,11 @@ export default function Menu() {
     },
   ];
   return (
-    <div className='overflow-y-auto space-y-0 md:space-y-20 no-scrollbar pl-2'>
+    <motion.div
+      className='overflow-y-auto space-y-0 md:space-y-20 no-scrollbar pl-2'
+      variants={container}
+      initial='hidden'
+      animate='show'>
       <TimeDiv className='relative h-48'>
         <div className='flex flex-col relative justify-between w-full h-full'>
           <div>
@@ -130,6 +145,6 @@ export default function Menu() {
           </Link>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

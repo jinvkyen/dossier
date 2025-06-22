@@ -1,11 +1,27 @@
+import { ScrollVelocity } from "../features/ScrollVelocity";
 import BigBentoCard from "../designs/BigBentoCard";
 import { HandWaving } from "@phosphor-icons/react";
 import IconCard from "../designs/IconCard";
-import { ScrollVelocity } from "../features/ScrollVelocity";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+
+const container: Variants = {
+  hidden: { opacity: 0, x: 20 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring" as const, damping: 50, stiffness: 100 },
+  },
+};
+
 
 export default function Home() {
   return (
-    <div className='flex h-screen overflow-hidden text-white scroll-smooth'>
+    <motion.div
+      className='flex h-screen overflow-hidden text-white scroll-smooth'
+      variants={container}
+      initial='hidden'
+      animate='show'>
       <div className='min-h-screen w-screen overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
         <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-svh'>
@@ -70,7 +86,7 @@ export default function Home() {
           <BigBentoCard className='p-4 h-auto lg:h-40'>Bottom Full Width</BigBentoCard>
         </section>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
