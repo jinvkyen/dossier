@@ -10,11 +10,11 @@ export default function Home() {
         {/* Top Section */}
         <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-svh'>
           {/* Left Column (Moving Name + Intro Card) */}
-          <div className='flex flex-col gap-2 lg:order-1 order-2 lg:w-[400px]'>
+          <div className='flex flex-col gap-2 lg:order-1 order-2 lg:w-[400px] flex-shrink-0'>
             {/* Moving Name */}
-            <div className='h-full order-3 lg:order-1'>
+            <div className='h-full order-3 lg:order-1 flex-shrink'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
-                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] md:w-[400px] h-[100px] lg:w-full'>
+                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[400px] md:w-[400px] h-[100px] lg:w-full'>
                   <ScrollVelocity
                     texts={["jin`vk`yen — Ayen Tipon —"]}
                     velocity={70}
@@ -25,7 +25,7 @@ export default function Home() {
             </div>
 
             {/* Intro Card */}
-            <div className='w-full h-full order-2 lg:order-2'>
+            <div className='w-full h-full order-2 lg:order-2 flex-shrink'>
               <BigBentoCard className='h-full flex justify-center items-center'>
                 <div className='flex flex-col p-6 space-y-2'>
                   <IconCard icon={<HandWaving className='text-white text-2xl' />} />
@@ -43,7 +43,7 @@ export default function Home() {
           </div>
 
           {/* Right Column (Image) */}
-          <div className='w-full flex-1 order-3 lg:order-3 min-w-0'>
+          <div className='w-full flex-1 order-3 lg:order-3 flex-grow'>
             <img
               src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg'
               className='w-full h-full rounded-xl border border-bgoutline object-cover'
@@ -52,6 +52,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Middle and Bottom Sections */}
         <section className='flex flex-col gap-2 h-auto lg:h-full'>
           {/* Middle Section A */}
           <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 h-auto lg:h-64'>

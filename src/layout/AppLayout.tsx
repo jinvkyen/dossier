@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-// import Menu from "../components/Menu";
+import Menu from "../components/Menu";
 import MobileNav from "../components/MobileNav";
 
 export default function AppLayout() {
@@ -11,7 +11,7 @@ export default function AppLayout() {
 
       <div className='bg-background flex max-h-screen w-full overflow-hidden text-white scroll-smooth font-inter'>
         <div className='md:flex hidden md:w-2/3 lg:w-1/2 xl:w-1/3 scroll-smooth'>
-          {/* <Menu /> */}
+          <Menu />
         </div>
 
         {/* Right scrollable panel of the screen*/}
