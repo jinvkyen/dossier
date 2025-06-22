@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, type JSX } from "react";
-import TimeDiv from "./TimeDiv";
-import BentoCard from "./BentoCard";
-import SpinningGlobe from "../../components/SpinningGlobe";
+import BentoCard from "../designs/BentoCard";
+import SpinningGlobe from "../designs/SpinningGlobe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import TimeDiv from "../designs/TimeDiv";
 import { faHouse, faFile, faSwatchbook, faImage, faEnvelope, faCertificate } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-export default function LeftSidePanel() {
+export default function Menu() {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -83,7 +83,7 @@ export default function LeftSidePanel() {
     },
   ];
   return (
-    <div className='overflow-y-auto p-2 space-y-0 md:space-y-20 no-scrollbar'>
+    <div className='overflow-y-auto space-y-0 md:space-y-20 no-scrollbar pl-2'>
       <TimeDiv className='relative h-48'>
         <div className='flex flex-col relative justify-between w-full h-full'>
           <div>

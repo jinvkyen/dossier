@@ -471,7 +471,7 @@ interface ASCIITextProps {
 }
 
 export default function ASCIIText({
-  text = "jinvkyen",
+  text = "Works",
   asciiFontSize = 8,
   textFontSize = 30,
   textColor = "#fdf9f3",
