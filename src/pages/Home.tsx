@@ -1,13 +1,13 @@
 import { ScrollVelocity } from "../features/ScrollVelocity";
-import BigBentoCard from "../designs/BigBentoCard";
+import BigBentoCard from "../components/BigBentoCard";
 import { ArrowRightIcon, HandWaving } from "@phosphor-icons/react";
-import IconCard from "../designs/IconCard";
-import Carousel from "../features/Carousel";
-
+import IconCard from "../components/IconCard";
+import Carousel from "../components/Carousel";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
+import { SiBehance, SiCodepen, SiGithub, SiHackerrank, SiLeetcode, SiLetterboxd, SiLinkedin } from "react-icons/si";
 
 const container: Variants = {
   hidden: { opacity: 0, x: 0 },
@@ -27,7 +27,7 @@ export default function Home() {
       animate='show'>
       <div className='min-h-screen w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
-        <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-svh'>
+        <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-[600px]'>
           {/* Right Column (Image) */}
           <div className='w-full order-2 lg:order-3 flex-1 flex-grow'>
             <img
@@ -38,11 +38,11 @@ export default function Home() {
           </div>
 
           {/* Left Column (Moving Name + Intro Card) */}
-          <div className='flex flex-col gap-2 order-1 lg:order-1 lg:w-[400px] flex-shrink-0'>
+          <div className='flex flex-col gap-2 order-1 lg:order-1 lg:w-[350px] flex-shrink-0'>
             {/* Moving Name */}
             <div className='h-full order-3 lg:order-1 flex-shrink'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
-                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[400px] md:w-[400px] h-[100px] lg:w-full'>
+                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[300px] md:w-[300px] h-[100px] lg:w-full'>
                   <ScrollVelocity
                     texts={["jinvkyen — Ayen Tipon —"]}
                     velocity={70}
@@ -56,7 +56,7 @@ export default function Home() {
             <div className='w-full h-full order-2 lg:order-2 flex-shrink'>
               <BigBentoCard className='h-full flex justify-center items-center'>
                 <div className='flex flex-col p-6 space-y-2'>
-                  <IconCard className="bg-bgoutline" icon={<HandWaving className='text-white text-2xl' />} />
+                  <IconCard className='bg-bgoutline' icon={<HandWaving className='text-white text-2xl' />} />
                   <p className='font-semibold'>
                     <span className='text-3xl'>Hi, I'm Ayen </span>
                   </p>
@@ -100,7 +100,45 @@ export default function Home() {
 
           {/* Middle Section B */}
           <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 lg:h-72'>
-            <BigBentoCard className='p-4 lg:row-span-2'>Middle Left</BigBentoCard>
+            <BigBentoCard className='lg:row-span-2 grid place-items-center p-4'>
+              <div className='flex flex-col gap-2'>
+                {/* Socials on top */}
+                <div className='flex gap-2'>
+                  <IconCard
+                    icon={<SiLinkedin size={20} />}
+                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
+                  />
+                  <IconCard
+                    icon={<SiGithub size={20} />}
+                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
+                  />
+                  <IconCard
+                    icon={<SiBehance size={20} />}
+                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
+                  />
+                  <IconCard
+                    icon={<SiCodepen size={20} />}
+                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
+                  />
+                </div>
+                {/* Socials at the bottom - equalling */}
+                <div className='flex gap-2'>
+                  <IconCard
+                    icon={<SiHackerrank size={20} />}
+                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
+                  />
+                  <IconCard
+                    icon={<SiLeetcode size={20} />}
+                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
+                  />
+                  <IconCard
+                    icon={<SiLetterboxd size={20} />}
+                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
+                  />
+                  <IconCard icon={""} className='bg-bgoutline/50 border border-1 border-bghover' />
+                </div>
+              </div>
+            </BigBentoCard>
             <BigBentoCard className='p-4 lg:col-span-2 lg:row-span-2'>Middle Right (2x height)</BigBentoCard>
           </section>
 

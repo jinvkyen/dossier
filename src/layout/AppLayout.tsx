@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Menu from "../components/Menu";
-import MobileNav from "../components/MobileNav";
+import Menu from "./Menu";
+import MobileNav from "./MobileNav";
 
 export default function AppLayout() {
   return (

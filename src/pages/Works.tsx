@@ -1,7 +1,7 @@
-import BigBentoCard from "../designs/BigBentoCard";
+import BigBentoCard from "../components/BigBentoCard";
 import ASCIIText from "../features/ASCIIText";
 import { HandWaving } from "@phosphor-icons/react";
-import IconCard from "../designs/IconCard";
+import IconCard from "../components/IconCard";
 
 export default function Works() {
   return (
@@ -15,7 +15,6 @@ export default function Works() {
               <div className='h-full w-[400px] order-1'>
                 <BigBentoCard className='w-full h-full flex items-center justify-center overflow-hidden vignette'>
                   <ASCIIText enableWaves={true} asciiFontSize={5} textFontSize={30} textColor='#ffffff' />
-
                 </BigBentoCard>
               </div>
               <div className='h-full w-[400px] order-3'>

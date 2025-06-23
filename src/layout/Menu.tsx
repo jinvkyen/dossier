@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, type JSX } from "react";
-import BentoCard from "../designs/BentoCard";
+import BentoCard from "../components/BentoCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import TimeDiv from "../designs/TimeDiv";
+import TimeDiv from "../components/ui/TimeDiv";
 import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import Globe from "../designs/Globe";
+import Globe from "../features/Globe";
 
 const container: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -107,7 +107,7 @@ export default function Menu() {
           {/* Spinning Globe */}
           <div className='absolute bottom-10 right-2 w-full h-full z-0 pointer-events-none justify-center flex'>
             <div className='mx-auto'>
-              <Globe/>
+              <Globe />
             </div>
           </div>
         </div>
@@ -117,10 +117,10 @@ export default function Menu() {
       <div className='z-10'>
         {bentoCards.map((card: any) => (
           <Link to={card.link} key={card.id} className='group no-underline'>
-            <BentoCard className='bg-bgcards p-3 mb-2'>
+            <BentoCard className='bg-bgcards p-4 mb-2'>
               <div className='flex items-start'>
                 {/* Icon with hover overlay image */}
-                <div className='relative group w-12 h-12 bg-[#444444] rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
+                <div className='relative group w-12 h-12 bg-bghover rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
                   <div className='relative z-10 group-hover:opacity-0 transition duration-300'>{card.icon}</div>
                   <img
                     src={card.onhover}

@@ -6,6 +6,6 @@ type IconCardProps = {
 };
 
 export default function IconCard({ icon, className="" }: IconCardProps) {
-  return <div className={`w-12 h-12 rounded-xl flex items-center justify-center mr-4 ${className}`}>{icon}</div>;
+  return <div className={`w-12 h-12 rounded-xl flex items-center justify-center  ${className}`}>{icon}</div>;
 }
 
