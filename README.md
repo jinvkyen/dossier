@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the source code of my personal portfolio website. It is a curated space to showcase my work, skills, and creative journey as a front-end developer. Built with modern tools, smooth animations, and a focus on responsive design.
 
-Currently, two official plugins are available:
+> Built using **React**, **TypeScript**, **Tailwind CSS**, and deployed via **Vercel**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+#### [Visit My Portfolio]()
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Preview
+![Screenshot](https://github.com/user-attachments/assets/f76f415d-517d-4049-b99d-80ef9d0a802d)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Tech Stack
+
+| Category       | Tools Used                            |
+|----------------|----------------------------------------|
+| Framework      | [Vite](https://vite.dev/), [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/) |
+| Styling        | [Tailwind CSS](https://tailwindcss.com/) |
+| Animations     | [Framer Motion](https://www.framer.com/motion/), ReactBits |
+| Globe Visual   | [COBE](https://github.com/shuding/cobe) |
+| Deployment     | [Vercel](https://vercel.com/) |
+| Fonts & Icons  | Inter, Lucide, Phosphor, FontAwesome, SI |
+
+---
+
+## Features
+
+- Smooth page transitions and animated intro
+- Real-time clock and 3D globe for visual design
+- Fully responsive design
+- Reusable components and modular structure
+- Contact form ready (extendable with EmailJS or API route)
+- Theme-ready design system (light/dark)
+
+---
+
+```
+├── public/                  # Static files (images, icons, etc.)
+├── src/
+│   ├── components/          # Shared components
+│   │   └── ui/              # UI-specific reusable components (buttons, cards, etc.)
+│   ├── pages/               # Top-level routes/views (e.g., Home, About, Contact)
+│   ├── features/            # Feature-based sections (e.g., projects, testimonials)
+│   ├── designs/             # Figma exports, SVGs, design mockups (optional)
+│   ├── lib/                 # Utility functions, constants, API configs
+│   ├── hooks/               # Custom React hooks
+│   └── layout/              # Layout wrappers like Menu, and App layout
+├── tailwind.config.js       # TailwindCSS configuration
+├── tsconfig.json            # TypeScript compiler configuration
+└── vite.config.ts           # Vite build and development config
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Inspiration & Acknowledgements
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- framer.com/mateusrila's template – heavily inspired by it
+- shuding/cobe – Lightweight globe visual
+- Framer Motion and ReactBits – React animations
+- Aceternity UI
+
+---
+
+ ## Contributing
+This is a personal project, but feel free to fork or use as a reference. Pull requests are welcome if you'd like to suggest improvements.
