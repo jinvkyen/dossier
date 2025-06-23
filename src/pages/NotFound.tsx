@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function NotFound() {
   return (
     <div className='flex h-screen overflow-hidden bg-background text-white scroll-smooth'>
-      <div className='min-h-screen w-screen overflow-y-auto p-8 grid place-items-center'>
+      <div className='min-h-screen w-full overflow-y-auto p-8 grid place-items-center'>
         {/* Top Section */}
         <section className='flex flex-col lg:flex-row gap-2 h-auto'>
           {/* Left Column (Moving Name + Intro Card) */}
@@ -28,10 +28,10 @@ export default function NotFound() {
             {/* Intro Card */}
             <div className='w-full h-full flex-shrink'>
               <BigBentoCard className='flex h-full w-full justify-center items-center'>
-                <div className='flex flex-col p-6 space-y-2'>
-                  <p className='font-semibold text-center'>This page doesn't exist</p>
+                <div className='flex flex-col p-6'>
+                  <h1 className='text-lg font-semibold text-center'>This page doesn't exist</h1>
                   <p className='text-center text-ptext text-sm'>Try another or go back to the beggining.</p>
-                  <div className='flex justify-center items-center'>
+                  <div className='flex justify-center items-center mt-4'>
                     <Link to={"/"}>
                       <Button>
                         Back to home <ArrowRightIcon size={20} className='ml-1' />

@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import { SiBehance, SiCodepen, SiGithub, SiHackerrank, SiLeetcode, SiLetterboxd, SiLinkedin } from "react-icons/si";
 import Testimonials from "../components/Testimonials";
+import Socials from "../components/Socials";
 
 const container: Variants = {
   hidden: { opacity: 0, x: 0 },
@@ -102,45 +102,9 @@ export default function Home() {
           {/* Middle Section B */}
           <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 lg:h-72'>
             <BigBentoCard className='lg:row-span-2 grid place-items-center p-4'>
-              <div className='flex flex-col gap-2'>
-                {/* Socials on top */}
-                <div className='flex gap-2'>
-                  <IconCard
-                    icon={<SiLinkedin size={20} />}
-                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
-                  />
-                  <IconCard
-                    icon={<SiGithub size={20} />}
-                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
-                  />
-                  <IconCard
-                    icon={<SiBehance size={20} />}
-                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
-                  />
-                  <IconCard
-                    icon={<SiCodepen size={20} />}
-                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
-                  />
-                </div>
-                {/* Socials at the bottom - equalling */}
-                <div className='flex gap-2'>
-                  <IconCard
-                    icon={<SiHackerrank size={20} />}
-                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
-                  />
-                  <IconCard
-                    icon={<SiLeetcode size={20} />}
-                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
-                  />
-                  <IconCard
-                    icon={<SiLetterboxd size={20} />}
-                    className='bg-bgoutline/50 border border-1 border-bghover hover:bg-bghover cursor-pointer'
-                  />
-                  <IconCard icon={""} className='bg-bgoutline/50 border border-1 border-bghover' />
-                </div>
-              </div>
+              <Socials />
             </BigBentoCard>
-            <BigBentoCard className='p-4 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden'>
+            <BigBentoCard className='p-4 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden object-cover'>
               <Testimonials />
             </BigBentoCard>
           </section>

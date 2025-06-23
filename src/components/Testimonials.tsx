@@ -12,45 +12,39 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote:
-      "blah blah",
+    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
     name: "Name 1",
     title: "Occupation @ Company",
-    avatar: "",
+    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
   },
   {
     id: 2,
-    quote:
-      "blah blah",
+    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
     name: "Name 2",
     title: "Occupation @ Company",
-    avatar: "",
+    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
   },
   {
     id: 3,
-    quote:
-      "blah blah",
+    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
     name: "Name 3",
     title: "Occupation @ Company",
-    avatar: "",
+    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
   },
   {
     id: 4,
-    quote:
-      "blah blah",
+    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
     name: "Name 4",
     title: "Occupation @ Company",
-    avatar: "",
+    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
   },
   {
     id: 5,
-    quote:
-      "blah blah",
+    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
     name: "Name 5",
     title: "Occupation @ Company",
-    avatar: "",
+    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
   },
-
 ];
 
 export default function Testimonials() {
@@ -85,11 +79,11 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <div className='flex items-center justify-center'>
-      <div className='relative max-w-2xl w-full'>
+    <div className='flex items-center justify-center p-2'>
+      <div className='relative max-w-xl'>
         {/* will display the main testimonials */}
         <div className='text-white'>
-          <blockquote className='text-xl md:text-2xl font-medium leading-relaxed mb-8'>
+          <blockquote className='text-xl md:text-2xl font-bold leading-relaxed mb-8'>
             "{currentTestimonial.quote}"
           </blockquote>
 
@@ -98,16 +92,15 @@ export default function Testimonials() {
               <img
                 src={currentTestimonial.avatar}
                 alt={currentTestimonial.name}
-                className='w-12 h-12 rounded-full object-cover'
+                className='w-12 h-12 rounded-xl border border-1 border-bgoutline object-cover'
               />
               <div>
                 <div className='font-semibold text-lg'>{currentTestimonial.name}</div>
-                <div className='text-gray-400 text-sm'>{currentTestimonial.title}</div>
+                <div className='text-ptext text-sm'>{currentTestimonial.title}</div>
               </div>
             </div>
-
             {/* Navigation buttons */}
-            <div className='flex items-center space-x-2'>
+            <div className='flex justify-end items-center space-x-2'>
               <button
                 onClick={goToPrevious}
                 className='p-2 rounded-full bg-background hover:bg-bghover transition-colors duration-200'
