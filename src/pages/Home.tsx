@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 
 const container: Variants = {
-  hidden: { opacity: 0, x: 100 },
+  hidden: { opacity: 0, x: 0 },
   show: {
     opacity: 1,
     x: 0,
-    transition: { type: "spring" as const, damping: 50, stiffness: 100 },
+    transition: { type: "spring" as const, damping: 50, stiffness: 50 },
   },
 };
 
@@ -25,7 +25,7 @@ export default function Home() {
       variants={container}
       initial='hidden'
       animate='show'>
-      <div className='min-h-screen w-screen overflow-y-auto p-2 grid gap-2'>
+      <div className='min-h-screen w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
         <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-svh'>
           {/* Right Column (Image) */}
@@ -56,7 +56,7 @@ export default function Home() {
             <div className='w-full h-full order-2 lg:order-2 flex-shrink'>
               <BigBentoCard className='h-full flex justify-center items-center'>
                 <div className='flex flex-col p-6 space-y-2'>
-                  <IconCard icon={<HandWaving className='text-white text-2xl' />} />
+                  <IconCard className="bg-bgoutline" icon={<HandWaving className='text-white text-2xl' />} />
                   <p className='font-semibold'>
                     <span className='text-3xl'>Hi, I'm Ayen </span>
                   </p>
@@ -81,18 +81,18 @@ export default function Home() {
               <div className='flex flex-col p-6 w-full'>
                 <div className='w-12 h-12 bg-bgoutline rounded-xl flex items-center justify-center'>
                   <div className='relative h-12 w-12'>
-                    <span className='absolute inset-0 rounded-full bg-green-400 opacity-25 animate-radar'></span>
+                    <span className='absolute inset-0 rounded-full bg-green-400 opacity-30 animate-radar'></span>
                     <span className='absolute inset-0 m-auto h-3 w-3 bg-green-500 rounded-full z-10'></span>
                   </div>
                 </div>
                 <p className='font-semibold mt-2'>
                   <span className='text-3xl'>Open to work</span>
                 </p>
-                <p className='text-pretty text-ptext text-base my-2'>
-                  Have a project or opportunity in mind?
-                </p>
-                <Link to={"/contact"} className="text-sm flex items-center mt-2">
-                  <Button>Contact me <ArrowRightIcon size={20} className="ml-1"/> </Button>
+                <p className='text-pretty text-ptext text-base my-2'>Have a project or opportunity in mind?</p>
+                <Link to={"/contact"} className='flex items-center mt-2'>
+                  <Button>
+                    Contact me <ArrowRightIcon size={20} className='ml-1' />{" "}
+                  </Button>
                 </Link>
               </div>
             </BigBentoCard>

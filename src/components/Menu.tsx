@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, type JSX } from "react";
 import BentoCard from "../designs/BentoCard";
-import SpinningGlobe from "../designs/SpinningGlobe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TimeDiv from "../designs/TimeDiv";
-import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import Globe from "../designs/Globe";
 
 const container: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -73,10 +73,17 @@ export default function Menu() {
       icon: <FontAwesomeIcon icon={faCertificate} className='text-lg' />,
       description: "A collection of my certifications in various technical fields.",
       link: "/certifications",
-      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1744389969/fcc_slh118.png",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750669205/certiport-databases_ojickj.png",
     },
     {
       id: 5,
+      title: "Gallery",
+      icon: <FontAwesomeIcon icon={faImage} className='text-lg' />,
+      description: "A curated glimpse into the way I see the world.",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/75ad88b0-4570-4559-b567-341726d6f210_huary4.jpg",
+    },
+    {
+      id: 6,
       title: "Contact",
       icon: <FontAwesomeIcon icon={faEnvelope} className='text-lg' />,
       description: "Have an idea or just want to say hi? Let's get connected!",
@@ -92,15 +99,15 @@ export default function Menu() {
       animate='show'>
       <TimeDiv className='relative h-48'>
         <div className='flex flex-col relative justify-between w-full h-full'>
-          <div className='text-center text-2xl text-white my-24 font-500 font-inter'>
+          <div className='text-center text-2xl text-white my-20 font-500 font-inter'>
             {formatTime(currentTime)} <br />
             Manila, The Philippines
           </div>
 
           {/* Spinning Globe */}
-          <div className='absolute top-24 md:top-32 left-0 w-full h-full z-0 pointer-events-none justify-center flex'>
+          <div className='absolute bottom-10 right-2 w-full h-full z-0 pointer-events-none justify-center flex'>
             <div className='mx-auto'>
-              <SpinningGlobe width={500} height={500} />
+              <Globe/>
             </div>
           </div>
         </div>
@@ -126,7 +133,7 @@ export default function Menu() {
                 </div>
 
                 {/* Text */}
-                <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-12 leading-tight'>
+                <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
                   <h1 className='text-white font-semibold'>{card.title}</h1>
                   <p className='text-ptext text-xs leading-tight'>{card.description}</p>
                 </div>

@@ -17,12 +17,12 @@ export default {
       },
       keyframes: {
         radar: {
-          "0%": { transform: "scale(0.5)", opacity: "1" },
-          "100%": { transform: "scale(2)", opacity: "0" },
+          "0%": { transform: "scale(0.2)", opacity: "1" },
+          "100%": { transform: "scale(1)", opacity: "0" },
         },
       },
       animation: {
-        radar: "radar 1.2s ease-out infinite",
+        radar: "radar 1.5s ease-out infinite",
       },
     },
     screens: {
