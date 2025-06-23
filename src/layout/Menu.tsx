@@ -7,7 +7,7 @@ import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } fro
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import Globe from "../features/Globe";
+// import Globe from "../features/Globe";
 
 const container: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -107,7 +107,7 @@ export default function Menu() {
           {/* Spinning Globe */}
           <div className='absolute bottom-10 right-2 w-full h-full z-0 pointer-events-none justify-center flex'>
             <div className='mx-auto'>
-              <Globe />
+              {/* <Globe /> */}
             </div>
           </div>
         </div>

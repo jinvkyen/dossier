@@ -8,6 +8,7 @@ import type { Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import { SiBehance, SiCodepen, SiGithub, SiHackerrank, SiLeetcode, SiLetterboxd, SiLinkedin } from "react-icons/si";
+import Testimonials from "../components/Testimonials";
 
 const container: Variants = {
   hidden: { opacity: 0, x: 0 },
@@ -139,7 +140,9 @@ export default function Home() {
                 </div>
               </div>
             </BigBentoCard>
-            <BigBentoCard className='p-4 lg:col-span-2 lg:row-span-2'>Middle Right (2x height)</BigBentoCard>
+            <BigBentoCard className='p-4 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden'>
+              <Testimonials />
+            </BigBentoCard>
           </section>
 
           {/* Bottom Section */}
