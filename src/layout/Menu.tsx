@@ -2,7 +2,7 @@
 import { useState, useEffect, type JSX } from "react";
 import BentoCard from "../components/BentoCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import TimeDiv from "../components/ui/TimeDiv";
+import TimeDiv from "../features/TimeDiv";
 import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";

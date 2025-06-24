@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import Testimonials from "../components/Testimonials";
 import Socials from "../components/Socials";
+import { BiSolidLayout } from "react-icons/bi";
 
 const container: Variants = {
   hidden: { opacity: 0, x: 0 },
@@ -56,7 +57,7 @@ export default function Home() {
             {/* Intro Card */}
             <div className='w-full h-full order-2 lg:order-2 flex-shrink'>
               <BigBentoCard className='h-full flex justify-center items-center'>
-                <div className='flex flex-col p-6 space-y-2'>
+                <div className='flex flex-col p-6 space-y-3'>
                   <IconCard className='bg-bgoutline' icon={<HandWaving className='text-white text-2xl' />} />
                   <p className='font-semibold'>
                     <span className='text-3xl'>Hi, I'm Ayen </span>
@@ -101,7 +102,7 @@ export default function Home() {
 
           {/* Middle Section B */}
           <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 lg:h-72'>
-            <BigBentoCard className='lg:row-span-2 grid place-items-center p-4'>
+            <BigBentoCard className='flex items-center justify-center p-4 lg:row-span-2'>
               <Socials />
             </BigBentoCard>
             <BigBentoCard className='p-4 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden object-cover'>
@@ -110,7 +111,30 @@ export default function Home() {
           </section>
 
           {/* Bottom Section */}
-          <BigBentoCard className='p-4 h-auto lg:h-60'>Bottom Full Width</BigBentoCard>
+          <BigBentoCard className='h-auto flex flex-col lg:flex-row justify-between items-center'>
+            <div className='flex flex-col p-6 space-y-3'>
+              <IconCard className='bg-bgoutline' icon={<BiSolidLayout className='text-white text-2xl' />} />
+              <p className='font-semibold'>
+                <span className='text-3xl'>Make your own portfolio</span>
+              </p>
+              <p className='text-pretty text-ptext text-[clamp(0.2rem,3.5rem)]'>
+                Want your own portfolio template? Simply fork the repository and update the data arrays to reflect your
+                own projects, skills, and info.
+              </p>
+              <a href='https://github.com/jinvkyen/open-source-portfolio' className='flex items-center mt-2'>
+                <Button>
+                  Documentation <ArrowRightIcon size={20} className='ml-1' />{" "}
+                </Button>
+              </a>
+            </div>
+            <div className='flex flex-col p-6 space-y-2'>
+              <img
+                src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750747731/thumbnail-portfolio_gjwam9.png'
+                alt='Open Source Portfolio Thumbnail'
+                className='p-6 rounded-xl w-[800px] h-auto bg-background'
+              />
+            </div>
+          </BigBentoCard>
         </section>
       </div>
     </motion.div>

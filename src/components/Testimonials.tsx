@@ -13,37 +13,41 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
-    name: "Name 1",
-    title: "Occupation @ Company",
-    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
+    name: "Mr. Peanutbutter",
+    title: "Actor @ Hollywoo",
+    avatar: "https://i.redd.it/9zh3d7rrh7sb1.jpg",
   },
   {
     id: 2,
-    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
-    name: "Name 2",
-    title: "Occupation @ Company",
-    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
+    quote:
+      "It gets easier. Every day it gets a little easier. But you gotta do it every day — that’s the hard part. But it does get easier.",
+    name: "Jogging Baboon",
+    title: "Jogger @ Street",
+    avatar: "https://miro.medium.com/v2/resize:fit:2880/1*WpIfVAWubr4otygEo0arvg.jpeg",
   },
   {
     id: 3,
-    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
-    name: "Name 3",
-    title: "Occupation @ Company",
-    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
+    quote:
+      "You do the hokey-pokey and you turn yourself around. \"You turn yourself around\", that's what it's all about.",
+    name: "Todd Chavez",
+    title: "Head of daycare @ VIM",
+    avatar: "https://i.pinimg.com/736x/65/10/d4/6510d42ebfd5aaed769a0ad84c6c1412.jpg",
   },
   {
     id: 4,
-    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
-    name: "Name 4",
-    title: "Occupation @ Company",
-    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
+    quote:
+      "That's the thing. I don't think I believe in deep down. I kind of think all you are is just the that you do.",
+    name: "Diane Nguyen",
+    title: "Writer @ Huston Texas",
+    avatar: "https://i.pinimg.com/736x/ef/fb/44/effb4439756be1b0a089408c0e65961c.jpg",
   },
   {
     id: 5,
-    quote: "You have reached the end of your membership at Benjamin-Franklin-Quotes.com",
-    name: "Name 5",
-    title: "Occupation @ Company",
-    avatar: "https://api.dicebear.com/9.x/lorelei/svg",
+    quote:
+      "You know, it's funny. When you look at someone through rose colored glasses, all the red flags just look like flags.",
+    name: "Wanda Pierce",
+    title: "Former Head of Programming @ MBN",
+    avatar: "https://i.pinimg.com/736x/68/ec/a6/68eca6dc97649849707d325a41240cb3.jpg",
   },
 ];
 

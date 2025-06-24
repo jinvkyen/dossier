@@ -6,10 +6,6 @@ type TimeProps = {
   hover?: boolean;
 };
 
-const TimeDiv = ({ children }: TimeProps) => (
-  <div>
-    {children}
-  </div>
-);
+const TimeDiv = ({ children }: TimeProps) => <div>{children}</div>;
 
 export default TimeDiv;

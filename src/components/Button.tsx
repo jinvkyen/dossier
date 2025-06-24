@@ -12,7 +12,7 @@ export default function Button({ children, className = "", hover = true }: Butto
       <button
         className={
           `
-      bg-white backdrop-blur-sm rounded-full w-40 pl-2 pr-2 h-10 text-black font-inter
+      bg-white backdrop-blur-sm rounded-xl w-40 pl-2 pr-2 h-10 text-black font-inter
       transition-all duration-300 ease-out flex items-center justify-center font-semibold
       ${className}
     ` + (hover ? " hover:bg-zinc-300 cursor-pointer text-black" : "")
