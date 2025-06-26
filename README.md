@@ -9,7 +9,7 @@ Welcome to the source code of my personal portfolio website. It is a curated spa
 #### [Visit My Portfolio]()
 
 ## Preview
-![Screenshot](https://github.com/user-attachments/assets/f76f415d-517d-4049-b99d-80ef9d0a802d)
+![image](https://github.com/user-attachments/assets/b8ada515-a0ce-4c22-88aa-6ffbe9d92a7f)
 
 ---
 
