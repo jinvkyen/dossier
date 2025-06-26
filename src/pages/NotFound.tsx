@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import Button from "../components/Button";
 import BigBentoCard from "../components/BigBentoCard";
-import { ScrollVelocity } from "../features/ScrollVelocity";
+import { ScrollVelocity } from "../designs/ScrollVelocity";
 import { Link } from "react-router-dom";
 
 export default function NotFound() {

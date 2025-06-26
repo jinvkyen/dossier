@@ -100,7 +100,7 @@ export default function Testimonials() {
               />
               <div>
                 <div className='font-semibold text-lg'>{currentTestimonial.name}</div>
-                <div className='text-ptext text-sm'>{currentTestimonial.title}</div>
+                <div className='text-ptext text-xs'>{currentTestimonial.title}</div>
               </div>
             </div>
             {/* Navigation buttons */}

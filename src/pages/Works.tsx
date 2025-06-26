@@ -1,5 +1,5 @@
 import BigBentoCard from "../components/BigBentoCard";
-import ASCIIText from "../features/ASCIIText";
+import ASCIIText from "../designs/ASCIIText";
 import { HandWaving } from "@phosphor-icons/react";
 import IconCard from "../components/IconCard";
 

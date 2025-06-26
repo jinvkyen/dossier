@@ -1,4 +1,4 @@
-import { ScrollVelocity } from "../features/ScrollVelocity";
+import { ScrollVelocity } from "../designs/ScrollVelocity";
 import BigBentoCard from "../components/BigBentoCard";
 import { ArrowRightIcon, HandWaving } from "@phosphor-icons/react";
 import IconCard from "../components/IconCard";
@@ -29,20 +29,20 @@ export default function Home() {
       animate='show'>
       <div className='min-h-screen w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
-        <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-[600px]'>
-          {/* Right Column (Image) */}
-          <div className='w-full order-2 lg:order-3 flex-1 flex-grow'>
+        <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-[690px]'>
+          {/* Right Column (Image) for Desktop View */}
+          <div className='w-full hidden lg:flex lg:order-3 flex-1 flex-grow'>
             <img
-              src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg'
+              src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
               className='w-full h-full rounded-xl border border-bgoutline object-cover'
               alt='Ayen Tipon'
             />
           </div>
 
           {/* Left Column (Moving Name + Intro Card) */}
-          <div className='flex flex-col gap-2 order-1 lg:order-1 lg:w-[350px] flex-shrink-0'>
+          <div className='flex flex-col gap-2 order-1 lg:order-1 lg:w-[380px] flex-shrink-0'>
             {/* Moving Name */}
-            <div className='h-full order-3 lg:order-1 flex-shrink'>
+            <div className='h-full hidden'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
                 <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[300px] md:w-[300px] h-[100px] lg:w-full'>
                   <ScrollVelocity
@@ -57,7 +57,7 @@ export default function Home() {
             {/* Intro Card */}
             <div className='w-full h-full order-2 lg:order-2 flex-shrink'>
               <BigBentoCard className='h-full flex justify-center items-center'>
-                <div className='flex flex-col p-6 space-y-3'>
+                <div className='flex flex-col p-2 md:p-6 space-y-3'>
                   <IconCard className='bg-bgoutline' icon={<HandWaving className='text-white text-2xl' />} />
                   <p className='font-semibold'>
                     <span className='text-3xl'>Hi, I'm Ayen </span>
@@ -69,18 +69,40 @@ export default function Home() {
                 </div>
               </BigBentoCard>
             </div>
+
+            {/* Right Column (Image) for Mobile View */}
+            <div className='w-full order-2 lg:hidden flex-1 flex-grow'>
+              <img
+                src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
+                className='w-full h-full rounded-xl border border-bgoutline object-cover'
+                alt='Ayen Tipon'
+              />
+            </div>
+
+            {/* Moving Name */}
+            <div className='h-full order-3 lg:order-1 flex-shrink'>
+              <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
+                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[150px] lg:w-full'>
+                  <ScrollVelocity
+                    texts={["jinvkyen — Ayen Tipon —"]}
+                    velocity={70}
+                    className='font-inter text-7xl leading-none'
+                  />
+                </div>
+              </BigBentoCard>
+            </div>
           </div>
         </section>
 
         {/* Middle and Bottom Sections */}
         <section className='flex flex-col gap-2 h-auto lg:h-full'>
           {/* Middle Section A */}
-          <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 h-full lg:h-72'>
+          <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 h-full lg:h-96'>
             <BigBentoCard className='lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden'>
               <Carousel />
             </BigBentoCard>
             <BigBentoCard className='h-full flex justify-center items-center lg:row-span-2'>
-              <div className='flex flex-col p-6 w-full'>
+              <div className='flex flex-col p-2 md:p-6 w-full'>
                 <div className='w-12 h-12 bg-bgoutline rounded-xl flex items-center justify-center'>
                   <div className='relative h-12 w-12'>
                     <span className='absolute inset-0 rounded-full bg-green-400 opacity-30 animate-radar'></span>
@@ -88,7 +110,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className='font-semibold mt-2'>
-                  <span className='text-3xl'>Open to work</span>
+                  <span className='text-4xl'>Open to work</span>
                 </p>
                 <p className='text-pretty text-ptext text-base my-2'>Have a project or opportunity in mind?</p>
                 <Link to={"/contact"} className='flex items-center mt-2'>
@@ -102,17 +124,17 @@ export default function Home() {
 
           {/* Middle Section B */}
           <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 lg:h-72'>
-            <BigBentoCard className='flex items-center justify-center p-4 lg:row-span-2'>
+            <BigBentoCard className='flex items-center justify-center p-6 lg:row-span-2'>
               <Socials />
             </BigBentoCard>
-            <BigBentoCard className='p-4 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden object-cover'>
+            <BigBentoCard className='p-2 md:p-6 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden object-cover'>
               <Testimonials />
             </BigBentoCard>
           </section>
 
           {/* Bottom Section */}
           <BigBentoCard className='h-auto flex flex-col lg:flex-row justify-between items-center'>
-            <div className='flex flex-col p-6 space-y-3'>
+            <div className='flex flex-col p-2 md:p-6 space-y-3'>
               <IconCard className='bg-bgoutline' icon={<BiSolidLayout className='text-white text-2xl' />} />
               <p className='font-semibold'>
                 <span className='text-3xl'>Make your own portfolio</span>
