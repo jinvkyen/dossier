@@ -5,6 +5,7 @@ export type Work = {
   image: string;
   year: number;
   languages: string[];
+  databases: string;
   category: "web app" | "website";
   url: string | "";
 };
@@ -18,6 +19,7 @@ export const works: Work[] = [
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750747731/thumbnail-portfolio_gjwam9.png",
     year: 2025,
     languages: ["React ", "JavaScript", "Tailwind"],
+    databases: "",
     category: "website",
     url: "https://open-web-portfolio.vercel.app/",
   },
@@ -28,6 +30,7 @@ export const works: Work[] = [
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1744372269/toquico_bzro6k.png",
     year: 2025,
     languages: ["React ", "JavaScript", "Tailwind"],
+    databases: "",
     category: "web app",
     url: "https://toquico.vercel.app/",
   },
@@ -38,6 +41,7 @@ export const works: Work[] = [
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750972830/resp_lzsylp.png",
     year: 2025,
     languages: ["HTML ", "Tailwind"],
+    databases: "",
     category: "website",
     url: "https://jinvkyen.github.io/hero-section.github.io/",
   },
@@ -49,6 +53,7 @@ export const works: Work[] = [
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1751000394/thumbnail-intrack_sarote.png",
     year: 2025,
     languages: ["Java "],
+    databases: "",
     category: "web app",
     url: "https://intrackapp.vercel.app/",
   },
@@ -60,17 +65,19 @@ export const works: Work[] = [
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750972705/r8d_ry54bt.png",
     year: 2025,
     languages: ["React ", "C#"],
+    databases: "",
     category: "web app",
     url: "https://confused-alloy.onrender.com/",
   },
   {
     id: "6",
-    title: "Responsive Envelope with Animation",
+    title: "Envelope with Animation",
     description:
-      "This project features a floating envelope with an interactive love card inside, along with a music player. The animation makes use of keyframe animations for smooth floating and rotation effects.",
+      "This project features a floating envelope with an interactive love card inside, along with a music player with keyframe animations for smooth floating and rotation effects.",
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750750773/env-closed_cpzi54.png",
     year: 2025,
     languages: ["HTML ", "CSS", "JavaScript"],
+    databases: "",
     category: "web app",
     url: "https://valentines-envelope-animatio.onrender.com/",
   },

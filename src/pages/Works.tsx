@@ -30,6 +30,14 @@ const languageIcons: Record<string, React.ReactNode> = {
   React: <i className='devicon-react-original colored'></i>,
   Tailwind: <i className='devicon-tailwindcss-plain colored'></i>,
 };
+// Database icons
+const databaseIcons: Record<string, React.ReactNode> = {
+  "SQL": <i className='devicon-sql-plain colored'></i>,
+  "MongoDB": <i className='devicon-mongodb-plain colored'></i>,
+  "PostgreSQL": <i className='devicon-postgresql-plain colored'></i>,
+  "MySQL": <i className='devicon-mysql-plain colored'></i>,
+  "SQLite": <i className='devicon-sqlite-plain colored'></i>,
+};
 
 
 export default function Works() {
@@ -43,7 +51,6 @@ export default function Works() {
   }, []);
 
   const [selectedSort, setSelectedSort] = useState<{
-    framework?: string;
     year?: number;
     language?: string;
   }>({});
@@ -240,10 +247,22 @@ export default function Works() {
         {/* Results: Filtered Cards */}
         <section className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
           {filteredWorks.map((work) => (
-            <a href={work.url} key={work.id}>
-              <BigBentoCard className='group flex flex-col-reverse items-center justify-center overflow-hidden hover:bg-bgoutline transition-all duration-200'>
-                <div className='flex flex-col p-4 space-y-2'>
-                  {/* map the following languages */}
+            <a href={work.url} key={work.id} className='h-full'>
+              <BigBentoCard className='h-full flex flex-col justify-between group overflow-hidden hover:bg-bgoutline transition-all duration-200'>
+                {/* Top: Image content */}
+                <div className='p-2 overflow-hidden'>
+                  <span className='bg-background rounded-xl block'>
+                    <img
+                      src={work.image}
+                      alt={work.title}
+                      className='w-full aspect-video p-6 rounded-lg object-cover scale-90
+              transition-transform duration-500 ease-in-out group-hover:scale-100'
+                    />
+                  </span>
+                </div>
+
+                {/* Bottom: Text content */}
+                <div className='flex flex-col p-2 space-y-1'>
                   <div className='flex flex-wrap items-center gap-1'>
                     {work.languages.slice(0, 3).map((lang, index) => (
                       <span
@@ -253,25 +272,14 @@ export default function Works() {
                         <span>{languageIcons[lang.trim()] || ""}</span>
                       </span>
                     ))}
-
                     {work.languages.length > 3 && (
                       <span className='px-2 border border-ptext text-xs text-ptext rounded-full'>
                         +{work.languages.length - 3}
                       </span>
                     )}
                   </div>
-                  {/* title */}
-                  <p className='font-semibold text-2xl lg:text-3xl'>{work.title}</p>
-                  {/* description */}
-                  <p className='text-pretty text-ptext text-md'>{work.description}</p>
-                </div>
-                <div className='flex flex-col p-2 overflow-hidden group'>
-                  {/* image with zoom on card hover */}
-                  <img
-                    src={work.image}
-                    alt={work.title}
-                    className='scale-95 rounded-lg w-full h-full lg:h-[300px] aspect-video object-cover transition-transform duration-500 ease-in-out group-hover:scale-100'
-                  />
+                  <p className='font-semibold text-xl lg:text-2xl'>{work.title}</p>
+                  <p className='text-pretty text-ptext text-base'>{work.description}</p>
                 </div>
               </BigBentoCard>
             </a>
