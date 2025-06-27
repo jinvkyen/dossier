@@ -3,9 +3,11 @@ import AppLayout from "./layout/AppLayout";
 import Home from "./pages/Home";
 import Works from "./pages/Works";
 import NotFound from "./pages/NotFound";
+import MobileNav from "./layout/MobileNav";
 
 
 export default function App() {
+
   return (
     <Routes>
       <Route path='/' element={<AppLayout />}>
@@ -13,6 +15,8 @@ export default function App() {
         <Route path='works' element={<Works />} />
       </Route>
 
+      {/* Menu bar */}
+      <Route path="/menu" element={<MobileNav/>}/>
       {/* 404 page */}
       <Route path='*' element={<NotFound />} />
     </Routes>

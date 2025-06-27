@@ -1,15 +1,11 @@
-import { ScrollVelocity } from "../designs/ScrollVelocity";
 import BigBentoCard from "../components/BigBentoCard";
 import { ArrowRightIcon, HandWaving } from "@phosphor-icons/react";
-import IconCard from "../components/IconCard";
-import Carousel from "../components/Carousel";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import Testimonials from "../components/Testimonials";
-import Socials from "../components/Socials";
 import { BiSolidLayout } from "react-icons/bi";
+import { Suspense, lazy } from "react";
 
 const container: Variants = {
   hidden: { opacity: 0, x: 10 },
@@ -20,13 +16,16 @@ const container: Variants = {
   },
 };
 
+// Implementing lazy loading for components
+const Testimonials = lazy(() => import("../components/Testimonials"));
+const Carousel = lazy(() => import("../components/Carousel"));
+const IconCard = lazy(() => import("../components/IconCard"));
+const Socials = lazy(() => import("../components/Socials"));
+const ScrollVelocity = lazy(() => import("../designs/ScrollVelocity"));
+
 export default function Home() {
   return (
-    <motion.div
-      className='flex overflow-hidden scroll-smooth'
-      variants={container}
-      initial='hidden'
-      animate='show'>
+    <motion.div className='flex overflow-hidden scroll-smooth' variants={container} initial='hidden' animate='show'>
       <div className='min-h-screen w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
         <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-[660px]'>
@@ -36,6 +35,7 @@ export default function Home() {
               src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
               className='w-full h-full rounded-xl border border-bgoutline object-cover'
               alt='Ayen Tipon'
+              loading='lazy'
             />
           </div>
 
@@ -45,11 +45,13 @@ export default function Home() {
             <div className='h-full hidden'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
                 <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[300px] md:w-[300px] h-[100px] lg:w-full'>
-                  <ScrollVelocity
-                    texts={["jinvkyen — Ayen Tipon —"]}
-                    velocity={70}
-                    className='font-inter text-[clamp(2.5rem,4vw,3.5rem)] leading-none'
-                  />
+                  <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+                    <ScrollVelocity
+                      texts={["jinvkyen — Ayen Tipon —"]}
+                      velocity={70}
+                      className='font-inter text-[clamp(2.5rem,4vw,3.5rem)] leading-none'
+                    />
+                  </Suspense>
                 </div>
               </BigBentoCard>
             </div>
@@ -58,13 +60,15 @@ export default function Home() {
             <div className='w-full h-full order-2 lg:order-2 flex-shrink'>
               <BigBentoCard className='h-full flex justify-center items-center'>
                 <div className='flex flex-col p-2 md:p-6 space-y-3'>
-                  <IconCard className='bg-bgoutline' icon={<HandWaving className='text-white text-2xl' />} />
+                  <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+                    <IconCard className='bg-bgoutline' icon={<HandWaving className='text-white text-2xl' />} />
+                  </Suspense>
                   <p className='font-semibold'>
                     <span className='text-3xl'>Hi, I'm Ayen </span>
                   </p>
                   <p className='text-pretty text-ptext text-[clamp(0.2rem,3.5rem)] font-sf'>
-                    A front-end geek with the dexterity to bring ui/ux to life. I'm new to the developer industry, and your support
-                    would be greatly appreciated as I pursue my journey as an aspiring software engineer.
+                    A front-end geek with the dexterity to bring ui/ux to life. I'm new to the developer industry, and
+                    your support would be greatly appreciated as I pursue my journey as an aspiring software engineer.
                   </p>
                 </div>
               </BigBentoCard>
@@ -76,6 +80,7 @@ export default function Home() {
                 src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
                 className='w-full h-full rounded-xl border border-bgoutline object-cover'
                 alt='Ayen Tipon'
+                loading='lazy'
               />
             </div>
 
@@ -83,11 +88,13 @@ export default function Home() {
             <div className='h-full order-3 lg:order-1 flex-shrink'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
                 <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[150px] lg:w-full'>
-                  <ScrollVelocity
-                    texts={["jinvkyen — Ayen Tipon —"]}
-                    velocity={70}
-                    className='font-inter text-7xl leading-none'
-                  />
+                  <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+                    <ScrollVelocity
+                      texts={["jinvkyen — Ayen Tipon —"]}
+                      velocity={70}
+                      className='font-inter text-[clamp(2.5rem,4vw,3.5rem)] leading-none'
+                    />
+                  </Suspense>
                 </div>
               </BigBentoCard>
             </div>
@@ -99,7 +106,9 @@ export default function Home() {
           {/* Middle Section A */}
           <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 h-full lg:h-96'>
             <BigBentoCard className='lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden'>
-              <Carousel />
+              <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+                <Carousel />
+              </Suspense>
             </BigBentoCard>
             <BigBentoCard className='h-full flex justify-center items-center lg:row-span-2'>
               <div className='flex flex-col p-2 md:p-6 w-full'>
@@ -125,17 +134,23 @@ export default function Home() {
           {/* Middle Section B */}
           <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 lg:h-72'>
             <BigBentoCard className='flex items-center justify-center p-6 lg:row-span-2'>
-              <Socials />
+              <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+                <Socials />
+              </Suspense>
             </BigBentoCard>
             <BigBentoCard className='md:p-6 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden object-cover'>
-              <Testimonials />
+              <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+                <Testimonials />
+              </Suspense>
             </BigBentoCard>
           </section>
 
           {/* Bottom Section */}
           <BigBentoCard className='h-auto flex flex-col lg:flex-row justify-between items-center'>
             <div className='flex flex-col p-2 md:p-6 space-y-3'>
-              <IconCard className='bg-bgoutline' icon={<BiSolidLayout className='text-white text-2xl' />} />
+              <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+                <IconCard className='bg-bgoutline' icon={<BiSolidLayout className='text-white text-2xl' />} />
+              </Suspense>
               <p className='font-semibold'>
                 <span className='text-3xl'>Make your own portfolio</span>
               </p>
@@ -154,6 +169,7 @@ export default function Home() {
                 src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750747731/thumbnail-portfolio_gjwam9.png'
                 alt='Open Source Portfolio Thumbnail'
                 className='p-6 rounded-xl w-[800px] h-auto bg-background'
+                loading='lazy'
               />
             </div>
           </BigBentoCard>

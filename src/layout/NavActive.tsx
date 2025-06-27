@@ -1,12 +1,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, type JSX } from "react";
-import { Link } from "react-router-dom";
-import { motion, type Variants } from "framer-motion";
-import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Globe from "../designs/Globe";
 import BentoCard from "../components/BentoCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHouse,
+  faFile,
+  faSwatchbook,
+  faEnvelope,
+  faCertificate,
+  faImage,
+  faArrowUp,
+} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import Footer from "../pages/Footer";
+import Globe from "../designs/Globe";
 
 const container: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -17,7 +26,7 @@ const container: Variants = {
   },
 };
 
-export default function Menu() {
+export default function NavActive() {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
@@ -90,9 +99,13 @@ export default function Menu() {
       onhover: "https://cdn.forthepeoplecollective.org/1662551863428.jpg",
     },
   ];
+
+  // Get current path and match it to a card
+  const activeCard = bentoCards.find((card) => card.link === location.pathname);
+  const isMainMenu = location.pathname === "index" || !activeCard;
   return (
     <motion.div
-      className='bg-background overflow-y-auto overflow-x-hidden no-scrollbar flex flex-col h-full'
+      className='overflow-hidden space-y-4 no-scrollbar px-2'
       variants={container}
       initial='hidden'
       animate='show'>
@@ -107,34 +120,71 @@ export default function Menu() {
         </div>
       </div>
 
+      <div className='relative w-full'>
+        <div className='absolute z-10 bottom-2 right-0'>
+          <Link to={"/menu"}>
+            <button
+              className='animate-pulse text-center text-sm bg-bgcards text-ptext border border-bghover flex items-center justify-center
+           rounded-full px-2 py-1 font-sf hover:bg-bghover hover:text-white transition-colors duration-500 cursor-pointer'>
+              Back to menu <FontAwesomeIcon icon={faArrowUp} className='pl-1' />
+            </button>
+          </Link>
+        </div>
+      </div>
+
       {/* Buttons of cards */}
       <div className='z-10'>
-        {bentoCards.map((card: any) => (
-          <Link to={card.link} key={card.id} className='group no-underline'>
-            <BentoCard className='bg-bgcards p-3 mt-2'>
-              <div className='flex items-center'>
-                {/* Icon with hover overlay image */}
-                <div className='relative group w-12 h-12 bg-bghover rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
-                  <div className='relative z-10 group-hover:opacity-0 transition duration-300'>{card.icon}</div>
-                  <img
-                    src={card.onhover}
-                    alt={`${card.title} hover`}
-                    className='
+        {isMainMenu ? (
+          bentoCards.map((card: any) => (
+            <Link to={card.link} key={card.id} className='group no-underline'>
+              <BentoCard className='bg-bgcards p-4'>
+                <div className='flex items-start'>
+                  {/* Icon with hover overlay image */}
+                  <div className='relative group w-12 h-12 bg-bghover rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
+                    <div className='relative z-10 group-hover:opacity-0 transition duration-300'>{card.icon}</div>
+                    <img
+                      src={card.onhover}
+                      alt={`${card.title} hover`}
+                      className='
                 absolute bottom-[-100%] left-0 w-full h-full object-cover
                 group-hover:bottom-0 transition-all duration-500 ease-out
               '
-                  />
-                </div>
+                    />
+                  </div>
 
-                {/* Text */}
-                <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
-                  <h1 className='text-white font-semibold'>{card.title}</h1>
-                  <p className='text-ptext font-sf text-sm leading-tight'>{card.description}</p>
+                  {/* Text */}
+                  <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
+                    <h1 className='text-white font-semibold'>{card.title}</h1>
+                    <p className='text-ptext font-sf text-sm leading-tight'>{card.description}</p>
+                  </div>
                 </div>
+              </BentoCard>
+            </Link>
+          ))
+        ) : (
+          <BentoCard className='bg-bgcards p-2 mt-2'>
+            <div className='flex items-center'>
+              {/* Icon with hover overlay image */}
+              <div className='relative group w-12 h-12 bg-bghover rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
+                <div className='relative z-10 group-hover:opacity-0 transition duration-300'>{activeCard.icon}</div>
+                <img
+                  src={activeCard.onhover}
+                  alt={`${activeCard.title} hover`}
+                  className='
+                      absolute bottom-[-100%] left-0 w-full h-full object-cover
+                      group-hover:bottom-0 transition-all duration-500 ease-out
+                    '
+                />
               </div>
-            </BentoCard>
-          </Link>
-        ))}
+
+              {/* Text */}
+              <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
+                <h1 className='text-white font-semibold text-lg'>{activeCard.title}</h1>
+                <p className='text-ptext font-sf text-sm leading-tight'>{activeCard.description}</p>
+              </div>
+            </div>
+          </BentoCard>
+        )}
       </div>
     </motion.div>
   );

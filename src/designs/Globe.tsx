@@ -9,8 +9,8 @@ const Globe = () => {
 
     const globe = createGlobe(canvasRef.current!, {
       devicePixelRatio: 2,
-      width: 400 * 2,
-      height: 400 * 2,
+      width: 350 * 2,
+      height: 350 * 2,
       phi: 0,
       theta: 0.3,
       dark: 1,
@@ -34,12 +34,12 @@ const Globe = () => {
   }, []);
 
   return (
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center items-center w-full h-full'>
       <canvas
         ref={canvasRef}
         style={{
-          width: 600,
-          height: 600,
+          width: 350,
+          height: 350,
           maxWidth: "100%",
           aspectRatio: 1,
         }}

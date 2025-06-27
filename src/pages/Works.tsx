@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import { ScrollVelocity } from "../designs/ScrollVelocity";
 import BigBentoCard from "../components/BigBentoCard";
 import { works } from "../data/workData";
 import { motion } from "framer-motion";
@@ -7,6 +6,7 @@ import type { Variants } from "framer-motion";
 import { FadersHorizontalIcon } from "@phosphor-icons/react";
 import { RefreshCw } from "lucide-react";
 import { FaX } from "react-icons/fa6";
+import { Suspense, lazy } from "react";
 
 const container: Variants = {
   hidden: { opacity: 0, x: 10 },
@@ -99,18 +99,26 @@ export default function Works() {
     };
   }, [sortDropdownOpen]);
 
+  // Handle lazy loading for components
+  const ScrollVelocity = lazy(() => import("../designs/ScrollVelocity"));
+
   return (
-    <motion.div className='flex overflow-hidden scroll-smooth'
-      variants={container} initial='hidden' animate='show'>
+    <motion.div
+      className='bg-background flex overflow-hidden scroll-smooth'
+      variants={container}
+      initial='hidden'
+      animate='show'>
       <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
         <BigBentoCard className='h-full flex lg:overflow-hidden justify-center items-center'>
           <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[100px] lg:h-[100px] lg:w-full'>
-            <ScrollVelocity
-              texts={["works — works —"]}
-              velocity={70}
-              className='font-inter text-5xl md:text-6xl leading-none'
-            />
+            <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
+              <ScrollVelocity
+                texts={["`works` — projects —"]}
+                velocity={70}
+                className='font-inter text-[clamp(2.5rem,4vw,3.5rem)] leading-none'
+              />
+            </Suspense>
           </div>
         </BigBentoCard>
 
@@ -255,6 +263,7 @@ export default function Works() {
                   <span className='bg-background rounded-xl block'>
                     <img
                       src={work.image}
+                      loading="lazy"
                       alt={work.title}
                       className='w-full aspect-video p-6 rounded-lg object-cover scale-90
               transition-transform duration-500 ease-in-out group-hover:scale-100'

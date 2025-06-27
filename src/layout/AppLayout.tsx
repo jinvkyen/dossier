@@ -1,21 +1,23 @@
 import { Outlet } from "react-router-dom";
 import Menu from "./Menu";
-import MobileNav from "./MobileNav";
+import NavActive from "./NavActive";
+// import MobileNav from "./MobileNav";
 
 export default function AppLayout() {
   return (
     <>
-      <div className='block lg:hidden'>
-        <MobileNav />
-      </div>
-
       <div className='bg-background flex max-h-screen w-full overflow-hidden text-white scroll-smooth font-inter'>
-        <div className='md:flex hidden md:w-2/3 lg:w-1/2 xl:w-1/3 scroll-smooth'>
+        <div className='md:block hidden md:w-2/3 lg:w-1/2 xl:w-1/3 scroll-smooth'>
+          {/* Desktop */}
           <Menu />
         </div>
 
-        {/* Right scrollable panel of the screen*/}
-        <div className='block overflow-y-auto scroll-smooth'>
+
+        <div className='bg-background block overflow-y-auto scroll-smooth'>
+          <div className='block md:hidden md:w-2/3 lg:w-1/2 xl:w-1/3 scroll-smooth'>
+            {/* Mobile */}
+            <NavActive/>
+          </div>
           <Outlet />
         </div>
       </div>
