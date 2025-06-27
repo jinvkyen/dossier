@@ -9,7 +9,7 @@ import { RefreshCw } from "lucide-react";
 import { FaX } from "react-icons/fa6";
 
 const container: Variants = {
-  hidden: { opacity: 0, x: 0 },
+  hidden: { opacity: 0, x: 10 },
   show: {
     opacity: 1,
     x: 0,
@@ -17,8 +17,8 @@ const container: Variants = {
   },
 };
 
-// Language icons
-const languageIcons: Record<string, React.ReactNode> = {
+// Front-end icons
+const frontendIcons: Record<string, React.ReactNode> = {
   HTML: <i className='devicon-html5-plain colored'></i>,
   CSS: <i className='devicon-css3-plain colored'></i>,
   Java: <i className='devicon-java-plain colored'></i>,
@@ -29,16 +29,16 @@ const languageIcons: Record<string, React.ReactNode> = {
   Laravel: <i className='devicon-laravel-plain colored'></i>,
   React: <i className='devicon-react-original colored'></i>,
   Tailwind: <i className='devicon-tailwindcss-plain colored'></i>,
+  Bootstrap: <i className='devicon-bootstrap-plain colored'></i>,
 };
 // Database icons
 const databaseIcons: Record<string, React.ReactNode> = {
-  "SQL": <i className='devicon-sql-plain colored'></i>,
-  "MongoDB": <i className='devicon-mongodb-plain colored'></i>,
-  "PostgreSQL": <i className='devicon-postgresql-plain colored'></i>,
-  "MySQL": <i className='devicon-mysql-plain colored'></i>,
-  "SQLite": <i className='devicon-sqlite-plain colored'></i>,
+  SQL: <i className='devicon-sql-plain colored'></i>,
+  MongoDB: <i className='devicon-mongodb-plain colored'></i>,
+  PostgreSQL: <i className='devicon-postgresql-plain colored'></i>,
+  MySQL: <i className='devicon-mysql-plain colored'></i>,
+  SQLite: <i className='devicon-sqlite-plain colored'></i>,
 };
-
 
 export default function Works() {
   // Load from localStorage on first render
@@ -64,13 +64,13 @@ export default function Works() {
   }, [selectedCategory, selectedSort]);
 
   const uniqueYears = [...new Set(works.map((w) => w.year))];
-  const uniqueLanguages = [...new Set(works.flatMap((w) => w.languages))];
+  const uniqueFrontend = [...new Set(works.flatMap((w) => w.frontend))];
   const uniqueCategories = [...new Set(works.map((w) => w.category))];
 
   const filteredWorks = works.filter((w) => {
     const categoryMatch = !selectedCategory || w.category === selectedCategory;
     const yearMatch = !selectedSort.year || w.year === selectedSort.year;
-    const languageMatch = !selectedSort.language || w.languages.includes(selectedSort.language);
+    const languageMatch = !selectedSort.language || w.frontend.includes(selectedSort.language);
     return categoryMatch && yearMatch && languageMatch;
   });
 
@@ -99,9 +99,9 @@ export default function Works() {
     };
   }, [sortDropdownOpen]);
 
-
   return (
-    <motion.div className='flex overflow-hidden scroll-smooth' variants={container} initial='hidden' animate='show'>
+    <motion.div className='flex overflow-hidden scroll-smooth'
+      variants={container} initial='hidden' animate='show'>
       <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
         <BigBentoCard className='h-full flex lg:overflow-hidden justify-center items-center'>
@@ -128,7 +128,7 @@ export default function Works() {
                   size={20}
                   className={`${sortDropdownOpen ? "rotate-90 transition-transform" : "rotate-0 transition-transform"}`}
                 />
-                <p className='pl-2 text-base'>Sort by</p>
+                <p className='pl-2 text-base'>Filter</p>
               </span>
             </button>
           </div>
@@ -166,7 +166,7 @@ export default function Works() {
             <div
               ref={dropdownRef}
               className='relative top-52 lg:top-44 left-0 w-full lg:w-80 z-20 bg-bgcards border border-bgoutline rounded-2xl p-6 shadow-lg'>
-              <div className='flex items-center justify-between mb-4'>
+              <div className='flex items-center justify-between mb-4 font-sf'>
                 {/* Header */}
                 <h3 className='text-lg font-semibold text-ptext'>Filter Projects</h3>
                 {/* Close button */}
@@ -178,7 +178,7 @@ export default function Works() {
               </div>
 
               {/* Filter Sections */}
-              <div className='grid grid-cols-1 gap-4'>
+              <div className='grid grid-cols-1 gap-4 font-sf'>
                 {/* Year Section */}
                 <div>
                   <p className='font-semibold text-sm mb-2'>By Year</p>
@@ -204,11 +204,11 @@ export default function Works() {
                   </div>
                 </div>
 
-                {/* Languages Section */}
+                {/* frontend Section */}
                 <div>
-                  <p className='font-semibold text-sm mb-2'>By Language</p>
-                  <div className='grid grid-cols-2 gap-2 max-h-32 overflow-y-auto pr-1'>
-                    {uniqueLanguages.map((lang) => (
+                  <p className='font-semibold text-sm mb-2'>By Parts of Application</p>
+                  <div className='grid grid-cols-3 gap-2 max-h-28 overflow-y-auto pr-1'>
+                    {uniqueFrontend.map((lang) => (
                       <button
                         key={lang}
                         onClick={() => {
@@ -218,7 +218,7 @@ export default function Works() {
                           }));
                           setSortDropdownOpen(true);
                         }}
-                        className={`flex items-center gap-1 text-sm py-1 px-2 rounded-full transition ${
+                        className={`flex justify-center items-center gap-1 text-sm py-1 px-2 rounded-full transition ${
                           selectedSort.language === lang
                             ? "bg-background text-white font-medium"
                             : "bg-bgoutline text-ptext hover:bg-background/50"
@@ -235,7 +235,8 @@ export default function Works() {
                     resetFilters();
                     setSortDropdownOpen(true);
                   }}
-                  className='w-full flex items-center justify-center gap-2 mt-2 py-2 border border-ptext rounded-full text-xs text-ptext hover:bg-background/30 transition'>
+                  className='w-full flex items-center justify-center gap-2 py-2 border border-ptext
+                  rounded-full text-xs text-ptext hover:bg-background/30 transition'>
                   <RefreshCw size={12} />
                   Reset All
                 </button>
@@ -245,7 +246,7 @@ export default function Works() {
         </div>
 
         {/* Results: Filtered Cards */}
-        <section className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
+        <section className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
           {filteredWorks.map((work) => (
             <a href={work.url} key={work.id} className='h-full'>
               <BigBentoCard className='h-full flex flex-col justify-between group overflow-hidden hover:bg-bgoutline transition-all duration-200'>
@@ -263,23 +264,29 @@ export default function Works() {
 
                 {/* Bottom: Text content */}
                 <div className='flex flex-col p-2 space-y-1'>
-                  <div className='flex flex-wrap items-center gap-1'>
-                    {work.languages.slice(0, 3).map((lang, index) => (
+                  {/* Tag Icons */}
+                  <div className='flex flex-wrap items-center gap-1 font-sf'>
+                    {[...(work.frontend || []), ...(work.databases || [])].slice(0, 4).map((tag, index) => (
                       <span
                         key={index}
                         className='flex items-center gap-1 px-2 py-1 bg-background border border-ptext text-xs text-ptext rounded-full'>
-                        <span>{lang.trim()}</span>
-                        <span>{languageIcons[lang.trim()] || ""}</span>
+                        <span>{tag.trim()}</span>
+                        <span>{frontendIcons[tag.trim()] || databaseIcons[tag.trim()] || ""}</span>
                       </span>
                     ))}
-                    {work.languages.length > 3 && (
+
+                    {work.frontend.length + work.databases.length > 4 && (
                       <span className='px-2 border border-ptext text-xs text-ptext rounded-full'>
-                        +{work.languages.length - 3}
+                        +{work.frontend.length + work.databases.length - 4}
                       </span>
                     )}
                   </div>
-                  <p className='font-semibold text-xl lg:text-2xl'>{work.title}</p>
-                  <p className='text-pretty text-ptext text-base'>{work.description}</p>
+                  <span className='flex justify-between items-center'>
+                    <p className='font-semibold text-xl lg:text-2xl'>{work.title}</p>
+                    {/* Title and Description */}
+                    <p className='text-center text-xs bg-background text-ptext rounded-full px-2 py-1'>{work.year}</p>
+                  </span>
+                  <p className='text-pretty text-ptext text-base font-sf'>{work.description}</p>
                 </div>
               </BigBentoCard>
             </a>

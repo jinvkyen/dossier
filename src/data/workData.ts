@@ -4,8 +4,8 @@ export type Work = {
   description: string;
   image: string;
   year: number;
-  languages: string[];
-  databases: string;
+  frontend: string[];
+  databases: string[];
   category: "web app" | "website";
   url: string | "";
 };
@@ -15,33 +15,34 @@ export const works: Work[] = [
     id: "1",
     title: "Open-Source Web Portfolio",
     description:
-      "This is an open source portfolio template built with React.js and Tailwind CSS is free for anyone to use and customize.",
-    image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750747731/thumbnail-portfolio_gjwam9.png",
+      "This open-source portfolio template, built with React.js and Tailwind CSS, is free for anyone to use and customize.",
+    image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750359019/web-portfolio_tblfbw.png",
     year: 2025,
-    languages: ["React ", "JavaScript", "Tailwind"],
-    databases: "",
+    frontend: ["React", "JavaScript", "Tailwind"],
+    databases: [],
     category: "website",
     url: "https://open-web-portfolio.vercel.app/",
   },
   {
     id: "2",
     title: "Toqui Co.",
-    description: "This a pet hub and website personal project with React.js framework dedicated to my beloved pet.",
+    description: "This is a personal pet hub and website project built with React.js, dedicated to my beloved pet.",
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1744372269/toquico_bzro6k.png",
     year: 2025,
-    languages: ["React ", "JavaScript", "Tailwind"],
-    databases: "",
-    category: "web app",
+    frontend: ["React", "JavaScript", "Tailwind"],
+    databases: [],
+    category: "website",
     url: "https://toquico.vercel.app/",
   },
   {
     id: "3",
     title: "Responsive Hero Section",
-    description: "This project displays a responsive hero section made with HTML and Tailwind in one page design.",
+    description:
+      "This project showcases a responsive hero section made with HTML and Tailwind in a single-page design.",
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750972830/resp_lzsylp.png",
     year: 2025,
-    languages: ["HTML ", "Tailwind"],
-    databases: "",
+    frontend: ["HTML", "Tailwind", "JavaScript"],
+    databases: [],
     category: "website",
     url: "https://jinvkyen.github.io/hero-section.github.io/",
   },
@@ -49,11 +50,11 @@ export const works: Work[] = [
     id: "4",
     title: "InTrack",
     description:
-      "This website is made for a Java desktop application that helps students efficiently track their internship progress.",
+      "This website was created for a Java desktop application that helps students efficiently track their internship progress.",
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1751000394/thumbnail-intrack_sarote.png",
     year: 2025,
-    languages: ["Java "],
-    databases: "",
+    frontend: ["Java", "React", "TypeScript", "Tailwind"],
+    databases: ["SQLite"],
     category: "web app",
     url: "https://intrackapp.vercel.app/",
   },
@@ -61,11 +62,11 @@ export const works: Work[] = [
     id: "5",
     title: "Research AIde",
     description:
-      "This project is an AI Research Assistant module developed as an internal project. It is designed to assist in research through an API-driven approach.",
+      "This project is an AI Research Assistant module developed as an internal project. It is designed to assist with research through an API-driven approach.",
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750972705/r8d_ry54bt.png",
     year: 2025,
-    languages: ["React ", "C#"],
-    databases: "",
+    frontend: ["HTML", "Tailwind", "JavaScript"],
+    databases: [],
     category: "web app",
     url: "https://confused-alloy.onrender.com/",
   },
@@ -73,12 +74,72 @@ export const works: Work[] = [
     id: "6",
     title: "Envelope with Animation",
     description:
-      "This project features a floating envelope with an interactive love card inside, along with a music player with keyframe animations for smooth floating and rotation effects.",
+      "This project features a floating envelope with an interactive love card inside, as well as a music player. Keyframe animations provide smooth floating and rotation effects.",
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750750773/env-closed_cpzi54.png",
     year: 2025,
-    languages: ["HTML ", "CSS", "JavaScript"],
-    databases: "",
-    category: "web app",
+    frontend: ["HTML", "CSS", "JavaScript"],
+    databases: [],
+    category: "website",
     url: "https://valentines-envelope-animatio.onrender.com/",
+  },
+  {
+    id: "7",
+    title: "RPG Creature Search",
+    description:
+      "This project is a search engine for creatures from an RPG game, using freeCodeCamp's RPG Creature API.",
+    image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1751008275/08319022-941d-4055-8452-25d8c169e0e4.png",
+    year: 2025,
+    frontend: ["HTML", "CSS", "JavaScript", "REST API"],
+    databases: [],
+    category: "website",
+    url: "https://github.com/jinvkyen/search-a-pokemon",
+  },
+  {
+    id: "8",
+    title: "Markdown Previewer",
+    description:
+      "This project is a simple markdown previewer made with JavaScript, demonstrating knowledge of the React framework.",
+    image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1751009595/markdown_v4nwti.png",
+    year: 2025,
+    frontend: ["React", "CSS", "JavaScript"],
+    databases: [],
+    category: "website",
+    url: "https://markup-previewer.onrender.com/",
+  },
+  {
+    id: "9",
+    title: "Cunosati and Ayakkusu Merch Shop",
+    description:
+      "Cunosati is a product catalog management system designed for anime merchandise. It integrates with Ayakkusu Merch Shop.",
+    image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1751010995/ayakkusu_a3venj.png",
+    year: 2024,
+    frontend: ["PHP", "Bootstrap", "REST API"],
+    databases: ["MySQL"],
+    category: "web app",
+    url: "https://github.com/jinvkyen/microservice-system-php",
+  },
+  {
+    id: "10",
+    title: "Tic-tac-toe: Arcane",
+    description:
+      "This game is a simple twist on the classic tic-tac-toe, reimagined with an arcane theme and confetti animation.",
+    image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1751011559/tic-tac-toe_pzws0b.png",
+    year: 2025,
+    frontend: ["HTML", "CSS", "JavaScript"],
+    databases: [],
+    category: "website",
+    url: "https://jinvkyen.github.io/tic-tac-toe/",
+  },
+  {
+    id: "11",
+    title: "CoffeeBrews",
+    description:
+      "This is a coffee ordering management system that consists of two user-levels that can manage orders as an employee or order a coffee as a guest.",
+    image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1751013551/coffeebrews_bhhk5c.png",
+    year: 2023,
+    frontend: ["Java"],
+    databases: ["SQLite"],
+    category: "web app",
+    url: "https://github.com/jinvkyen/coffee-menu-ordering-system-java",
   },
 ];

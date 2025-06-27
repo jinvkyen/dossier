@@ -12,11 +12,11 @@ import Socials from "../components/Socials";
 import { BiSolidLayout } from "react-icons/bi";
 
 const container: Variants = {
-  hidden: { opacity: 0, x: 0 },
+  hidden: { opacity: 0, x: 10 },
   show: {
     opacity: 1,
     x: 0,
-    transition: { type: "spring" as const, damping: 50, stiffness: 50 },
+    transition: { type: "spring" as const, damping: 50, stiffness: 90 },
   },
 };
 
@@ -62,9 +62,9 @@ export default function Home() {
                   <p className='font-semibold'>
                     <span className='text-3xl'>Hi, I'm Ayen </span>
                   </p>
-                  <p className='text-pretty text-ptext text-[clamp(0.2rem,3.5rem)]'>
-                    A front-end geek with the dexterity to bring ui/ux to life. I'm new to the dev industry, and support
-                    would be greatly appreciated as I pursue my journey as an aspiring software developer.
+                  <p className='text-pretty text-ptext text-[clamp(0.2rem,3.5rem)] font-sf'>
+                    A front-end geek with the dexterity to bring ui/ux to life. I'm new to the developer industry, and your support
+                    would be greatly appreciated as I pursue my journey as an aspiring software engineer.
                   </p>
                 </div>
               </BigBentoCard>
@@ -112,7 +112,7 @@ export default function Home() {
                 <p className='font-semibold mt-2'>
                   <span className='text-4xl'>Open to work</span>
                 </p>
-                <p className='text-pretty text-ptext text-base my-2'>Have a project or opportunity in mind?</p>
+                <p className='text-pretty text-ptext text-base my-2 font-sf'>Have a project or opportunity in mind?</p>
                 <Link to={"/contact"} className='flex items-center mt-2'>
                   <Button>
                     Contact me <ArrowRightIcon size={20} className='ml-1' />{" "}
@@ -127,7 +127,7 @@ export default function Home() {
             <BigBentoCard className='flex items-center justify-center p-6 lg:row-span-2'>
               <Socials />
             </BigBentoCard>
-            <BigBentoCard className='p-2 md:p-6 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden object-cover'>
+            <BigBentoCard className='md:p-6 lg:col-span-2 lg:row-span-2 flex items-center justify-center overflow-hidden object-cover'>
               <Testimonials />
             </BigBentoCard>
           </section>
@@ -139,7 +139,7 @@ export default function Home() {
               <p className='font-semibold'>
                 <span className='text-3xl'>Make your own portfolio</span>
               </p>
-              <p className='text-pretty text-ptext text-[clamp(0.2rem,3.5rem)]'>
+              <p className='text-pretty text-ptext text-[clamp(0.2rem,3.5rem)] font-sf'>
                 Want your own portfolio template? Simply fork the repository and update the data arrays to reflect your
                 own projects, skills, and info.
               </p>
@@ -149,7 +149,7 @@ export default function Home() {
                 </Button>
               </a>
             </div>
-            <div className='flex flex-col p-6 space-y-2'>
+            <div className='flex flex-col p-2 lg:p-6 space-y-2'>
               <img
                 src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750747731/thumbnail-portfolio_gjwam9.png'
                 alt='Open Source Portfolio Thumbnail'

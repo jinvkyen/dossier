@@ -7,7 +7,7 @@ import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } fro
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-// import Globe from "../designs/Globe";
+import Globe from "../designs/Globe";
 
 const container: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -99,7 +99,7 @@ export default function Menu() {
       animate='show'>
       <TimeDiv className='relative h-48'>
         <div className='flex flex-col relative justify-between w-full h-full'>
-          <div className='text-center text-2xl text-white my-20 font-500 font-inter'>
+          <div className='text-center text-2xl text-white my-20 font-500 font-sf'>
             {formatTime(currentTime)} <br />
             Manila, The Philippines
           </div>
@@ -107,7 +107,7 @@ export default function Menu() {
           {/* Spinning Globe */}
           <div className='absolute bottom-10 right-3 w-full h-full z-0 pointer-events-none justify-center flex'>
             <div className='mx-auto'>
-              {/* <Globe /> */}
+              <Globe />
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function Menu() {
                 {/* Text */}
                 <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
                   <h1 className='text-white font-semibold'>{card.title}</h1>
-                  <p className='text-ptext text-xs leading-tight'>{card.description}</p>
+                  <p className='text-ptext font-sf text-sm leading-tight'>{card.description}</p>
                 </div>
               </div>
             </BentoCard>
