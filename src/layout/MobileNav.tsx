@@ -70,10 +70,10 @@ export default function MobileNav() {
     },
     {
       id: 4,
-      title: "Certifications",
+      title: "Achievements",
       icon: <FontAwesomeIcon icon={faCertificate} className='text-xl text-white' />,
-      description: "A collection of my certifications in various technical fields.",
-      link: "/certifications",
+      description: "A collection of my achievements in various technical fields.",
+      link: "/achievements",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750669205/certiport-databases_ojickj.png",
     },
     {

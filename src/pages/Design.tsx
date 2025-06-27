@@ -3,11 +3,9 @@ import BigBentoCard from "../components/BigBentoCard";
 import { designs } from "../data/designData";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { Suspense } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import ASCIIText from "../designs/ASCIIText";
 
 const container: Variants = {
   hidden: { opacity: 0, x: 10 },
@@ -31,7 +29,8 @@ export default function Design() {
           {designs.map((ds: any) => (
             <BigBentoCard
               key={ds.id}
-              className='h-full flex flex-col justify-between group overflow-hidden hover:bg-bgoutline transition-all duration-200 scroll-smooth snap-mandatory'>
+              className='h-full flex flex-col justify-between group overflow-hidden
+              hover:bg-bgoutline transition-all duration-200 scroll-smooth snap-mandatory'>
               {/* Whole card is a link */}
               <Link to={ds.url} className='flex flex-col h-full'>
                 {/* Top: Image content */}
@@ -59,15 +58,6 @@ export default function Design() {
             </BigBentoCard>
           ))}
         </section>
-
-        {/* Bottom Section */}
-        <BigBentoCard className='h-full flex lg:overflow-hidden justify-center items-center order-1 lg:order-2'>
-          <div className='flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[100px] lg:h-[150px] lg:w-full'>
-            <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
-              <ASCIIText text='`designs`' textColor='#fdf9f3' asciiFontSize={2} planeBaseHeight={32} />
-            </Suspense>
-          </div>
-        </BigBentoCard>
       </div>
     </motion.div>
   );

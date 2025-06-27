@@ -68,10 +68,10 @@ export default function Menu() {
     },
     {
       id: 4,
-      title: "Certifications",
+      title: "Achievements",
       icon: <FontAwesomeIcon icon={faCertificate} className='text-lg' />,
-      description: "A collection of my certifications in various technical fields.",
-      link: "/certifications",
+      description: "A collection of my achievements in various technical fields.",
+      link: "/achievements",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750669205/certiport-databases_ojickj.png",
     },
     {
@@ -111,7 +111,7 @@ export default function Menu() {
       <div className='z-10'>
         {bentoCards.map((card: any) => (
           <Link to={card.link} key={card.id} className='group no-underline'>
-            <BentoCard className='bg-bgcards p-3 mt-2'>
+            <BentoCard className='bg-bgcards p-3 mb-0 md:mb-2 mt-2 md:mt-0'>
               <div className='flex items-center'>
                 {/* Icon with hover overlay image */}
                 <div className='relative group w-12 h-12 bg-bghover rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
