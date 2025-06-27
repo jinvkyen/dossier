@@ -23,13 +23,13 @@ const container: Variants = {
 export default function Home() {
   return (
     <motion.div
-      className='flex h-screen overflow-hidden scroll-smooth'
+      className='flex overflow-hidden scroll-smooth'
       variants={container}
       initial='hidden'
       animate='show'>
       <div className='min-h-screen w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
-        <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-[690px]'>
+        <section className='flex flex-col lg:flex-row gap-2 h-auto lg:h-[650px]'>
           {/* Right Column (Image) for Desktop View */}
           <div className='w-full hidden lg:flex lg:order-3 flex-1 flex-grow'>
             <img
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
 
           {/* Left Column (Moving Name + Intro Card) */}
-          <div className='flex flex-col gap-2 order-1 lg:order-1 lg:w-[380px] flex-shrink-0'>
+          <div className='flex flex-col gap-2 order-1 lg:order-1 lg:w-[350px] flex-shrink-0'>
             {/* Moving Name */}
             <div className='h-full hidden'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>

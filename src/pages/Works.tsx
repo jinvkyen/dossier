@@ -1,61 +1,283 @@
+import { useEffect, useState, useRef } from "react";
+import { ScrollVelocity } from "../designs/ScrollVelocity";
 import BigBentoCard from "../components/BigBentoCard";
-import ASCIIText from "../designs/ASCIIText";
-import { HandWaving } from "@phosphor-icons/react";
-import IconCard from "../components/IconCard";
+import { works } from "../data/workData";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
+import { FadersHorizontalIcon } from "@phosphor-icons/react";
+import { RefreshCw } from "lucide-react";
+import { FaX } from "react-icons/fa6";
+
+const container: Variants = {
+  hidden: { opacity: 0, x: 0 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring" as const, damping: 50, stiffness: 50 },
+  },
+};
+
+// Language icons
+const languageIcons: Record<string, React.ReactNode> = {
+  HTML: <i className='devicon-html5-plain colored'></i>,
+  CSS: <i className='devicon-css3-plain colored'></i>,
+  Java: <i className='devicon-java-plain colored'></i>,
+  PHP: <i className='devicon-php-plain colored'></i>,
+  TypeScript: <i className='devicon-typescript-plain colored'></i>,
+  JavaScript: <i className='devicon-javascript-plain colored'></i>,
+  "C#": <i className='devicon-csharp-plain colored'></i>,
+  Laravel: <i className='devicon-laravel-plain colored'></i>,
+  React: <i className='devicon-react-original colored'></i>,
+  Tailwind: <i className='devicon-tailwindcss-plain colored'></i>,
+};
+
 
 export default function Works() {
+  // Load from localStorage on first render
+  useEffect(() => {
+    const storedCategory = localStorage.getItem("selectedCategory");
+    const storedSort = localStorage.getItem("selectedSort");
+
+    if (storedCategory) setSelectedCategory(storedCategory);
+    if (storedSort) setSelectedSort(JSON.parse(storedSort));
+  }, []);
+
+  const [selectedSort, setSelectedSort] = useState<{
+    framework?: string;
+    year?: number;
+    language?: string;
+  }>({});
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>();
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+
+  // Save to localStorage whenever filters change
+  useEffect(() => {
+    localStorage.setItem("selectedCategory", selectedCategory || "");
+    localStorage.setItem("selectedSort", JSON.stringify(selectedSort));
+  }, [selectedCategory, selectedSort]);
+
+  const uniqueYears = [...new Set(works.map((w) => w.year))];
+  const uniqueLanguages = [...new Set(works.flatMap((w) => w.languages))];
+  const uniqueCategories = [...new Set(works.map((w) => w.category))];
+
+  const filteredWorks = works.filter((w) => {
+    const categoryMatch = !selectedCategory || w.category === selectedCategory;
+    const yearMatch = !selectedSort.year || w.year === selectedSort.year;
+    const languageMatch = !selectedSort.language || w.languages.includes(selectedSort.language);
+    return categoryMatch && yearMatch && languageMatch;
+  });
+
+  const resetFilters = () => {
+    setSelectedCategory(undefined);
+    setSelectedSort({});
+    localStorage.removeItem("selectedCategory");
+    localStorage.removeItem("selectedSort");
+  };
+
+  // Close dropdown when clicking outside
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      setTimeout(() => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+          setSortDropdownOpen(false);
+        }
+      }, 0);
+    };
+    if (sortDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [sortDropdownOpen]);
+
+
   return (
-    <>
-      <div className='flex h-screen overflow-hidden text-white scroll-smooth'>
-        <div className='min-h-screen w-full overflow-y-auto pt-2 pr-2 pb-4 grid gap-2'>
-          {/* Top Section with square + fill */}
-          <section className='flex gap-2 h-svh'>
-            {/* Left: vertical stack of two squares */}
-            <div className='flex flex-col gap-2'>
-              <div className='h-full w-[400px] order-1'>
-                <BigBentoCard className='w-full h-full flex items-center justify-center overflow-hidden vignette'>
-                  <ASCIIText enableWaves={true} asciiFontSize={5} textFontSize={30} textColor='#ffffff' />
-                </BigBentoCard>
+    <motion.div className='flex overflow-hidden scroll-smooth' variants={container} initial='hidden' animate='show'>
+      <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
+        {/* Top Section */}
+        <BigBentoCard className='h-full flex lg:overflow-hidden justify-center items-center'>
+          <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[100px] lg:h-[100px] lg:w-full'>
+            <ScrollVelocity
+              texts={["works — works —"]}
+              velocity={70}
+              className='font-inter text-5xl md:text-6xl leading-none'
+            />
+          </div>
+        </BigBentoCard>
+
+        <BigBentoCard className='grid grid-cols-1 lg:grid-cols-2 p-2'>
+          {/* Sort button */}
+          <div className='flex justify-start mt-2 lg:mt-0 order-2 lg:order-1'>
+            <button
+              onClick={() => setSortDropdownOpen((prev) => !prev)}
+              className='w-full lg:w-32 text-base rounded-lg transition-all duration-200 text-ptext'>
+              <span
+                className={`flex flex-row lg:justify-center items-center rounded-lg w-full px-2 py-2 transition-colors duration-200 ${
+                  sortDropdownOpen ? "bg-background text-white font-semibold" : "hover:bg-background text-ptext"
+                }`}>
+                <FadersHorizontalIcon
+                  size={20}
+                  className={`${sortDropdownOpen ? "rotate-90 transition-transform" : "rotate-0 transition-transform"}`}
+                />
+                <p className='pl-2 text-base'>Sort by</p>
+              </span>
+            </button>
+          </div>
+
+          {/* Categories / Filter Navigation */}
+          <div className='flex gap-2 order-1 lg:order-2'>
+            <button
+              onClick={() => setSelectedCategory(undefined)}
+              className={`w-full text-base rounded-lg transition-all duration-200 ${
+                selectedCategory === undefined
+                  ? "bg-background text-white font-semibold"
+                  : "text-ptext hover:bg-background transition-all duration-200"
+              }`}>
+              All
+            </button>
+
+            {uniqueCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory((prev) => (prev === cat ? undefined : cat))}
+                className={`w-full py-2 text-base rounded-lg transition-all duration-200 ${
+                  selectedCategory === cat
+                    ? "bg-background text-white font-semibold"
+                    : "text-ptext hover:bg-background transition-all duration-200"
+                }`}>
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </button>
+            ))}
+          </div>
+        </BigBentoCard>
+
+        {/* Sort Dropdown Below */}
+        <div className='absolute max-w-full'>
+          {sortDropdownOpen && (
+            <div
+              ref={dropdownRef}
+              className='relative top-52 lg:top-44 left-0 w-full lg:w-80 z-20 bg-bgcards border border-bgoutline rounded-2xl p-6 shadow-lg'>
+              <div className='flex items-center justify-between mb-4'>
+                {/* Header */}
+                <h3 className='text-lg font-semibold text-ptext'>Filter Projects</h3>
+                {/* Close button */}
+                <button
+                  onClick={() => setSortDropdownOpen(false)}
+                  className='p-2 rounded-full hover:bg-background transition'>
+                  <FaX size={12} className='text-ptext' />
+                </button>
               </div>
-              <div className='h-full w-[400px] order-3'>
-                <BigBentoCard className='w-full h-full'>
-                  <div className='flex flex-col mt-12 p-6 space-y-2'>
-                    <IconCard icon={<HandWaving className='text-white text-2xl' />} />
-                    <p className='font-semibold'>
-                      <span className='text-3xl'>Hi, I'm Ayen </span>
-                    </p>
-                    <p className='text-md text-ptext'>
-                      A front-end developer geek with the dexterity to bring user interfaces and experiences to life.
-                      I'm new to the dev industry, and support would be greatly appreciated as I pursue my journey as an
-                      aspiring software developer.
-                    </p>
+
+              {/* Filter Sections */}
+              <div className='grid grid-cols-1 gap-4'>
+                {/* Year Section */}
+                <div>
+                  <p className='font-semibold text-sm mb-2'>By Year</p>
+                  <div className='grid grid-cols-3 gap-2'>
+                    {uniqueYears.map((year) => (
+                      <button
+                        key={year}
+                        onClick={() => {
+                          setSelectedSort((prev) => ({
+                            ...prev,
+                            year: prev.year === year ? undefined : year,
+                          }));
+                          setSortDropdownOpen(true);
+                        }}
+                        className={`text-sm py-1 rounded-full transition ${
+                          selectedSort.year === year
+                            ? "bg-background text-white font-medium"
+                            : "bg-bgoutline text-ptext hover:bg-background/50"
+                        }`}>
+                        {year}
+                      </button>
+                    ))}
                   </div>
-                </BigBentoCard>
+                </div>
+
+                {/* Languages Section */}
+                <div>
+                  <p className='font-semibold text-sm mb-2'>By Language</p>
+                  <div className='grid grid-cols-2 gap-2 max-h-32 overflow-y-auto pr-1'>
+                    {uniqueLanguages.map((lang) => (
+                      <button
+                        key={lang}
+                        onClick={() => {
+                          setSelectedSort((prev) => ({
+                            ...prev,
+                            language: prev.language === lang ? undefined : lang,
+                          }));
+                          setSortDropdownOpen(true);
+                        }}
+                        className={`flex items-center gap-1 text-sm py-1 px-2 rounded-full transition ${
+                          selectedSort.language === lang
+                            ? "bg-background text-white font-medium"
+                            : "bg-bgoutline text-ptext hover:bg-background/50"
+                        }`}>
+                        <span>{lang}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Reset All */}
+                <button
+                  onClick={() => {
+                    resetFilters();
+                    setSortDropdownOpen(true);
+                  }}
+                  className='w-full flex items-center justify-center gap-2 mt-2 py-2 border border-ptext rounded-full text-xs text-ptext hover:bg-background/30 transition'>
+                  <RefreshCw size={12} />
+                  Reset All
+                </button>
               </div>
             </div>
-
-            {/* Right: image of my face */}
-            <div className='flex-1 order-2'>
-              <img
-                src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg'
-                className='w-full h-full rounded-xl border border-bgoutline object-cover'></img>
-            </div>
-          </section>
-
-          {/* Middle Section */}
-          <section className='grid grid-cols-3 gap-2 h-64'>
-            <BigBentoCard className='p-4 col-span-2 row-span-2'>Middle Left</BigBentoCard>
-            <BigBentoCard className='p-4 row-span-2'>Middle Right</BigBentoCard>
-          </section>
-          <section className='grid grid-cols-3 grid-rows-2 gap-2 h-64'>
-            <BigBentoCard className='p-4 row-span-2'>Middle Left</BigBentoCard>
-            <BigBentoCard className='p-4 row-span-2 col-start-2 col-span-2'>Middle Right (2x height)</BigBentoCard>
-          </section>
-
-          {/* Bottom Section */}
-          <BigBentoCard className='p-4 h-40'>Bottom Full Width</BigBentoCard>
+          )}
         </div>
+
+        {/* Results: Filtered Cards */}
+        <section className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
+          {filteredWorks.map((work) => (
+            <a href={work.url} key={work.id}>
+              <BigBentoCard className='group flex flex-col-reverse items-center justify-center overflow-hidden hover:bg-bgoutline transition-all duration-200'>
+                <div className='flex flex-col p-4 space-y-2'>
+                  {/* map the following languages */}
+                  <div className='flex flex-wrap items-center gap-1'>
+                    {work.languages.slice(0, 3).map((lang, index) => (
+                      <span
+                        key={index}
+                        className='flex items-center gap-1 px-2 py-1 bg-background border border-ptext text-xs text-ptext rounded-full'>
+                        <span>{lang.trim()}</span>
+                        <span>{languageIcons[lang.trim()] || ""}</span>
+                      </span>
+                    ))}
+
+                    {work.languages.length > 3 && (
+                      <span className='px-2 border border-ptext text-xs text-ptext rounded-full'>
+                        +{work.languages.length - 3}
+                      </span>
+                    )}
+                  </div>
+                  {/* title */}
+                  <p className='font-semibold text-2xl lg:text-3xl'>{work.title}</p>
+                  {/* description */}
+                  <p className='text-pretty text-ptext text-md'>{work.description}</p>
+                </div>
+                <div className='flex flex-col p-2 overflow-hidden group'>
+                  {/* image with zoom on card hover */}
+                  <img
+                    src={work.image}
+                    alt={work.title}
+                    className='scale-95 rounded-lg w-full h-full lg:h-[300px] aspect-video object-cover transition-transform duration-500 ease-in-out group-hover:scale-100'
+                  />
+                </div>
+              </BigBentoCard>
+            </a>
+          ))}
+        </section>
       </div>
-    </>
+    </motion.div>
   );
 }

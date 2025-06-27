@@ -31,7 +31,6 @@ body {
     z-index: 100;
     pointer-events: none;
   }
-
   .scroll-velocity-vignette::before {
     left: 0;
     background: linear-gradient(to right, rgb(29, 29, 29), transparent);

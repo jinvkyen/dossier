@@ -5,6 +5,8 @@ type BigBentoCardProps = {
   className?: string;
   hover?: boolean;
 };
+
+
 const BigBentoCard = ({ children, className = "" }: BigBentoCardProps) => (
   <div
     className={`
