@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Works from "./pages/Works";
 import NotFound from "./pages/NotFound";
 import MobileNav from "./layout/MobileNav";
+import Design from "./pages/Design";
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <Route path='/' element={<AppLayout />}>
         <Route index element={<Home />} />
         <Route path='works' element={<Works />} />
+        <Route path='designs' element={<Design />} />
       </Route>
 
       {/* Menu bar */}

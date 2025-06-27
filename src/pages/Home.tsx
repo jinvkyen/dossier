@@ -34,7 +34,7 @@ export default function Home() {
             <img
               src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
               className='w-full h-full rounded-xl border border-bgoutline object-cover'
-              alt='Ayen Tipon'
+              alt="Author's Image"
               loading='lazy'
             />
           </div>
@@ -47,7 +47,7 @@ export default function Home() {
                 <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[300px] md:w-[300px] h-[100px] lg:w-full'>
                   <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
                     <ScrollVelocity
-                      texts={["jinvkyen — Ayen Tipon —"]}
+                      texts={["`jinvkyen` — Ayen Tipon —"]}
                       velocity={70}
                       className='font-inter text-[clamp(2.5rem,4vw,3.5rem)] leading-none'
                     />
@@ -79,7 +79,7 @@ export default function Home() {
               <img
                 src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
                 className='w-full h-full rounded-xl border border-bgoutline object-cover'
-                alt='Ayen Tipon'
+                alt="Author's Image"
                 loading='lazy'
               />
             </div>
@@ -90,7 +90,7 @@ export default function Home() {
                 <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[150px] lg:w-full'>
                   <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
                     <ScrollVelocity
-                      texts={["jinvkyen — Ayen Tipon —"]}
+                      texts={["`jinvkyen` — Ayen Tipon —"]}
                       velocity={70}
                       className='font-inter text-[clamp(2.5rem,4vw,3.5rem)] leading-none'
                     />
@@ -123,7 +123,7 @@ export default function Home() {
                 </p>
                 <p className='text-pretty text-ptext text-base my-2 font-sf'>Have a project or opportunity in mind?</p>
                 <Link to={"/contact"} className='flex items-center mt-2'>
-                  <Button>
+                  <Button className="bg-white">
                     Contact me <ArrowRightIcon size={20} className='ml-1' />{" "}
                   </Button>
                 </Link>

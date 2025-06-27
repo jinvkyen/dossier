@@ -46,7 +46,7 @@ export default function Carousel() {
 
   return (
     <div className='relative w-full h-96 rounded-xl bg-background cursor-pointer'>
-      <Link to={"/design"}>
+      <Link to={"/designs"}>
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
             key={index}

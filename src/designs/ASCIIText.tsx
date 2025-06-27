@@ -471,9 +471,9 @@ interface ASCIITextProps {
 }
 
 export default function ASCIIText({
-  text = "Works",
-  asciiFontSize = 8,
-  textFontSize = 30,
+  text = "",
+  asciiFontSize = 12,
+  textFontSize = 60,
   textColor = "#fdf9f3",
   planeBaseHeight = 8,
   enableWaves = true,
@@ -527,7 +527,7 @@ export default function ASCIIText({
 
         canvas {
           position: absolute;
-          left: 0;
+          right: 0;
           top: 0;
           width: 100%;
           height: 100%;

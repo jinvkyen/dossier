@@ -63,7 +63,7 @@ export default function Menu() {
       title: "Design",
       icon: <FontAwesomeIcon icon={faSwatchbook} className='text-lg' />,
       description: "A collection of my design work, UI and web design.",
-      link: "/design",
+      link: "/designs",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/MacBook-_13_xyd6hf.png",
     },
     {

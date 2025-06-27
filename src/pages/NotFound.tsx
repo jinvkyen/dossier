@@ -33,7 +33,7 @@ export default function NotFound() {
                   <p className='text-center text-ptext text-sm'>Try another or go back to the beggining.</p>
                   <div className='flex justify-center items-center mt-4'>
                     <Link to={"/"}>
-                      <Button>
+                      <Button className="bg-white">
                         Back to home <ArrowRightIcon size={20} className='ml-1' />
                       </Button>
                     </Link>
