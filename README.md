@@ -9,7 +9,7 @@ Welcome to the source code of my personal portfolio website. It is a curated spa
 #### [Visit My Portfolio](https://ayentipon.vercel.app/)
 
 ## Preview
-![image](https://github.com/user-attachments/assets/b8ada515-a0ce-4c22-88aa-6ffbe9d92a7f)
+![image](https://github.com/user-attachments/assets/6e9fa502-56a8-4042-8550-3cb88fece35e)
 
 ---
 
