@@ -6,6 +6,7 @@ import NotFound from "./pages/NotFound";
 import MobileNav from "./layout/MobileNav";
 import Design from "./pages/Design";
 import Achievement from "./pages/Achievement";
+import Gallery from "./pages/Gallery";
 
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Route path='works' element={<Works />} />
         <Route path='designs' element={<Design />} />
         <Route path='achievements' element={<Achievement />} />
+        <Route path='gallery' element={<Gallery />} />
       </Route>
 
       {/* Menu bar */}
