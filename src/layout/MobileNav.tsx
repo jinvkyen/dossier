@@ -101,14 +101,13 @@ export default function MobileNav() {
           variants={container}
           initial='hidden'
           animate='show'>
-
-          <div className='flex flex-col items-center my-20 text-white'>
+          <div className='flex flex-col items-center  my-28 text-white'>
             <span className='font-500 font-sf text-2xl text-center'>
               {formatTime(currentTime)} <br />
               Manila, The Philippines
             </span>
             <Footer />
-            <div className='absolute bottom-0 w-full h-full z-0 pointer-events-none justify-center block'>
+            <div className='absolute top-10 w-full h-full z-0 pointer-events-none justify-center block'>
               <Globe />
             </div>
           </div>

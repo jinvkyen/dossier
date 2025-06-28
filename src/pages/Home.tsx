@@ -159,7 +159,7 @@ export default function Home() {
                 own projects, skills, and info.
               </p>
               <a href='https://github.com/jinvkyen/open-source-portfolio' className='flex items-center mt-2'>
-                <Button>
+                <Button className="bg-white">
                   Documentation <ArrowRightIcon size={20} className='ml-1' />{" "}
                 </Button>
               </a>

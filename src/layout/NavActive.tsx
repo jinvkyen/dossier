@@ -109,7 +109,7 @@ export default function NavActive() {
       variants={container}
       initial='hidden'
       animate='show'>
-      <div className='relative flex flex-col items-center my-20'>
+      <div className='relative flex flex-col items-center my-28'>
         <span className='relative font-500 font-sf text-2xl text-center'>
           {formatTime(currentTime)} <br />
           Manila, The Philippines

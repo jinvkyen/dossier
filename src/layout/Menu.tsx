@@ -79,6 +79,7 @@ export default function Menu() {
       title: "Gallery",
       icon: <FontAwesomeIcon icon={faImage} className='text-lg' />,
       description: "A curated glimpse into the way I see the world.",
+      link: "/gallery",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/75ad88b0-4570-4559-b567-341726d6f210_huary4.jpg",
     },
     {
@@ -96,7 +97,7 @@ export default function Menu() {
       variants={container}
       initial='hidden'
       animate='show'>
-      <div className='relative flex flex-col items-center my-20'>
+      <div className='relative flex flex-col items-center my-28'>
         <span className='relative font-500 font-sf text-2xl text-center'>
           {formatTime(currentTime)} <br />
           Manila, The Philippines
