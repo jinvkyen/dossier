@@ -7,6 +7,7 @@ import MobileNav from "./layout/MobileNav";
 import Design from "./pages/Design";
 import Achievement from "./pages/Achievement";
 import Gallery from "./pages/Gallery";
+import At from "./designs/At";
 
 
 export default function App() {
@@ -20,6 +21,9 @@ export default function App() {
         <Route path='achievements' element={<Achievement />} />
         <Route path='gallery' element={<Gallery />} />
       </Route>
+
+      {/* Design Routes */}
+      <Route path='/designs-@t' element={<At />} />
 
       {/* Menu bar */}
       <Route path='/menu' element={<MobileNav />} />

@@ -21,7 +21,7 @@ const Testimonials = lazy(() => import("../components/Testimonials"));
 const Carousel = lazy(() => import("../components/Carousel"));
 const IconCard = lazy(() => import("../components/IconCard"));
 const Socials = lazy(() => import("../components/Socials"));
-const ScrollVelocity = lazy(() => import("../designs/ScrollVelocity"));
+const ScrollVelocity = lazy(() => import("../components/ScrollVelocity"));
 
 export default function Home() {
   return (
@@ -44,7 +44,7 @@ export default function Home() {
             {/* Moving Name */}
             <div className='h-full hidden'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
-                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[300px] md:w-[300px] h-[100px] lg:w-full'>
+                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[400px] sm:w-[300px] md:w-[300px] h-[100px] lg:w-full'>
                   <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
                     <ScrollVelocity
                       texts={["`jinvkyen` — Ayen Tipon —"]}
@@ -87,7 +87,7 @@ export default function Home() {
             {/* Moving Name */}
             <div className='h-full order-3 lg:order-1 flex-shrink'>
               <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
-                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[150px] lg:w-full'>
+                <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[250px] sm:w-[430px] md:w-[430px] h-[150px] lg:w-full'>
                   <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
                     <ScrollVelocity
                       texts={["`jinvkyen` — Ayen Tipon —"]}
@@ -123,7 +123,7 @@ export default function Home() {
                 </p>
                 <p className='text-pretty text-ptext text-base my-2 font-sf'>Have a project or opportunity in mind?</p>
                 <Link to={"/contact"} className='flex items-center mt-2'>
-                  <Button className="bg-white">
+                  <Button className='bg-white'>
                     Contact me <ArrowRightIcon size={20} className='ml-1' />{" "}
                   </Button>
                 </Link>
@@ -132,7 +132,7 @@ export default function Home() {
           </section>
 
           {/* Middle Section B */}
-          <section className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-2 lg:h-72'>
+          <section className='grid grid-cols-1 lg:grid-cols-3 gap-2 lg:h-72'>
             <BigBentoCard className='flex items-center justify-center p-6 lg:row-span-2'>
               <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
                 <Socials />
@@ -159,7 +159,7 @@ export default function Home() {
                 own projects, skills, and info.
               </p>
               <a href='https://github.com/jinvkyen/open-source-portfolio' className='flex items-center mt-2'>
-                <Button className="bg-white">
+                <Button className='bg-white'>
                   Documentation <ArrowRightIcon size={20} className='ml-1' />{" "}
                 </Button>
               </a>

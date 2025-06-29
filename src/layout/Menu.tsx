@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Globe from "../designs/Globe";
+import Globe from "../components/Globe";
 import BentoCard from "../components/BentoCard";
 import Footer from "../pages/Footer";
 
@@ -91,6 +91,10 @@ export default function Menu() {
       onhover: "https://cdn.forthepeoplecollective.org/1662551863428.jpg",
     },
   ];
+
+  // funtion for active Menu
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
   return (
     <motion.div
       className='bg-background overflow-y-auto overflow-x-hidden no-scrollbar flex flex-col h-full'
@@ -108,11 +112,19 @@ export default function Menu() {
         </div>
       </div>
 
-      {/* Buttons of cards */}
-      <div className='z-10'>
+      {/* Menu Buttons of cards */}
+      <div className='z-10 pl-2'>
         {bentoCards.map((card: any) => (
-          <Link to={card.link} key={card.id} className='group no-underline'>
-            <BentoCard className='bg-bgcards p-3 mb-0 md:mb-2 mt-2 md:mt-0'>
+          <Link
+            to={card.link}
+            key={card.id}
+            className='group no-underline'
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setActiveCard(card.id);
+            }}>
+            <BentoCard
+              className={`p-3 mb-0 md:mb-2 mt-2 md:mt-0 ${activeCard === card.id ? "bg-bghover" : "bg-bgcards"}`}>
               <div className='flex items-center'>
                 {/* Icon with hover overlay image */}
                 <div className='relative group w-12 h-12 bg-bghover rounded-xl flex items-center justify-center mr-4 overflow-hidden'>
@@ -130,7 +142,9 @@ export default function Menu() {
                 {/* Text */}
                 <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
                   <h1 className='text-white font-semibold'>{card.title}</h1>
-                  <p className='text-ptext font-sf text-sm leading-tight'>{card.description}</p>
+                  <p className='text-ptext font-sf text-sm leading-tight line-clamp-2 lg:line-clamp-none'>
+                    {card.description}
+                  </p>
                 </div>
               </div>
             </BentoCard>

@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import Button from "../components/Button";
 import BigBentoCard from "../components/BigBentoCard";
-import { ScrollVelocity } from "../designs/ScrollVelocity";
+import { ScrollVelocity } from "../components/ScrollVelocity";
 import { Link } from "react-router-dom";
 
 export default function NotFound() {
@@ -33,7 +33,7 @@ export default function NotFound() {
                   <p className='text-center text-ptext text-sm'>Try another or go back to the beggining.</p>
                   <div className='flex justify-center items-center mt-4'>
                     <Link to={"/"}>
-                      <Button className="bg-white">
+                      <Button className='bg-white'>
                         Back to home <ArrowRightIcon size={20} className='ml-1' />
                       </Button>
                     </Link>

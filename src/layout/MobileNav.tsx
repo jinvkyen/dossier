@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Footer from "../pages/Footer";
-import Globe from "../designs/Globe";
+import Globe from "../components/Globe";
 import NotFound from "../pages/NotFound";
 
 const container: Variants = {
@@ -81,6 +81,7 @@ export default function MobileNav() {
       title: "Gallery",
       icon: <FontAwesomeIcon icon={faImage} className='text-xl text-white' />,
       description: "A curated glimpse into the way I see the world.",
+      link: "/gallery",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/75ad88b0-4570-4559-b567-341726d6f210_huary4.jpg",
     },
     {
@@ -95,25 +96,25 @@ export default function MobileNav() {
 
   return (
     <>
-      <header className='block md:hidden'>
+      <header className='flex md:hidden'>
         <motion.div
           className='bg-background overflow-y-auto no-scrollbar p-2'
           variants={container}
           initial='hidden'
           animate='show'>
-          <div className='flex flex-col items-center  my-28 text-white'>
+          <div className='flex flex-col items-center my-24 text-white'>
             <span className='font-500 font-sf text-2xl text-center'>
               {formatTime(currentTime)} <br />
               Manila, The Philippines
             </span>
             <Footer />
-            <div className='absolute top-10 w-full h-full z-0 pointer-events-none justify-center block'>
+            <div className='absolute top-0 w-full h-full z-0 pointer-events-none justify-center block'>
               <Globe />
             </div>
           </div>
 
           {/* Buttons of cards */}
-          <div className='z-10 mt-4'>
+          <div className='z-10 mb-2'>
             {bentoCards.map((card: any) => (
               <Link to={card.link} key={card.id} className='group no-underline'>
                 <BentoCard className='bg-bgcards p-3 mt-2'>
@@ -131,7 +132,9 @@ export default function MobileNav() {
                     {/* Text */}
                     <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
                       <h1 className='text-white font-semibold text-base font-inter'>{card.title}</h1>
-                      <p className='text-ptext font-sf text-sm leading-tight'>{card.description}</p>
+                      <p className='text-ptext font-sf text-sm leading-tight line-clamp-2 lg:line-clamp-none'>
+                        {card.description}
+                      </p>
                     </div>
                   </div>
                 </BentoCard>

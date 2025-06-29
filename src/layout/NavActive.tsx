@@ -2,20 +2,12 @@
 import { useState, useEffect, type JSX } from "react";
 import BentoCard from "../components/BentoCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHouse,
-  faFile,
-  faSwatchbook,
-  faEnvelope,
-  faCertificate,
-  faImage,
-  faArrowUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faFile, faSwatchbook, faEnvelope, faCertificate, faImage } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Footer from "../pages/Footer";
-import Globe from "../designs/Globe";
+import Globe from "../components/Globe";
 
 const container: Variants = {
   hidden: { opacity: 0, x: -20 },
@@ -88,6 +80,7 @@ export default function NavActive() {
       title: "Gallery",
       icon: <FontAwesomeIcon icon={faImage} className='text-lg' />,
       description: "A curated glimpse into the way I see the world.",
+      link: "/gallery",
       onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/75ad88b0-4570-4559-b567-341726d6f210_huary4.jpg",
     },
     {
@@ -120,20 +113,8 @@ export default function NavActive() {
         </div>
       </div>
 
-      <div className='relative w-full'>
-        <div className='absolute z-10 bottom-2 right-0'>
-          <Link to={"/menu"}>
-            <button
-              className='animate-pulse text-center text-sm bg-bgcards text-ptext border border-bghover flex items-center justify-center
-           rounded-full px-2 py-1 font-sf hover:bg-bghover hover:text-white transition-colors duration-500 cursor-pointer'>
-              Back to menu <FontAwesomeIcon icon={faArrowUp} className='pl-1' />
-            </button>
-          </Link>
-        </div>
-      </div>
-
       {/* Buttons of cards */}
-      <div className='z-10'>
+      <div className='z-0'>
         {isMainMenu ? (
           bentoCards.map((card: any) => (
             <Link to={card.link} key={card.id} className='group no-underline'>
@@ -155,7 +136,9 @@ export default function NavActive() {
                   {/* Text */}
                   <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
                     <h1 className='text-white font-semibold'>{card.title}</h1>
-                    <p className='text-ptext font-sf text-sm leading-tight'>{card.description}</p>
+                    <p className='text-ptext font-sf text-sm leading-tight line-clamp-2 lg:line-clamp-none'>
+                      {card.description}
+                    </p>
                   </div>
                 </div>
               </BentoCard>
@@ -180,7 +163,9 @@ export default function NavActive() {
               {/* Text */}
               <div className='flex-1 text-start mr-12 md:mr-5 lg:mr-8 leading-tight'>
                 <h1 className='text-white font-semibold text-lg'>{activeCard.title}</h1>
-                <p className='text-ptext font-sf text-sm leading-tight'>{activeCard.description}</p>
+                <p className='text-ptext font-sf text-sm leading-tight line-clamp-2 lg:line-clamp-none'>
+                  {activeCard.description}
+                </p>
               </div>
             </div>
           </BentoCard>

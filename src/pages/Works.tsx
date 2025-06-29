@@ -18,7 +18,7 @@ const container: Variants = {
 };
 
 // Front-end icons
-const frontendIcons: Record<string, React.ReactNode> = {
+const techIcons: Record<string, React.ReactNode> = {
   HTML: <i className='devicon-html5-plain colored'></i>,
   CSS: <i className='devicon-css3-plain colored'></i>,
   Java: <i className='devicon-java-plain colored'></i>,
@@ -64,13 +64,13 @@ export default function Works() {
   }, [selectedCategory, selectedSort]);
 
   const uniqueYears = [...new Set(works.map((w) => w.year))];
-  const uniqueFrontend = [...new Set(works.flatMap((w) => w.frontend))];
+  const uniquetech = [...new Set(works.flatMap((w) => w.tech))];
   const uniqueCategories = [...new Set(works.map((w) => w.category))];
 
   const filteredWorks = works.filter((w) => {
     const categoryMatch = !selectedCategory || w.category === selectedCategory;
     const yearMatch = !selectedSort.year || w.year === selectedSort.year;
-    const languageMatch = !selectedSort.language || w.frontend.includes(selectedSort.language);
+    const languageMatch = !selectedSort.language || w.tech.includes(selectedSort.language);
     return categoryMatch && yearMatch && languageMatch;
   });
 
@@ -85,112 +85,85 @@ export default function Works() {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      setTimeout(() => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-          setSortDropdownOpen(false);
-        }
-      }, 0);
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setSortDropdownOpen(false);
+      }
     };
     if (sortDropdownOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      // Prevent body scroll when dropdown is open
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "unset";
     };
   }, [sortDropdownOpen]);
 
   // Handle lazy loading for components
-  const ScrollVelocity = lazy(() => import("../designs/ScrollVelocity"));
+  const ScrollVelocity = lazy(() => import("../components/ScrollVelocity"));
 
   return (
     <motion.div
-      className='bg-background flex overflow-hidden scroll-smooth'
+      className='bg-background flex overflow-hidden scroll-smooth relative'
       variants={container}
       initial='hidden'
       animate='show'>
       <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
-        <BigBentoCard className='h-full flex lg:overflow-hidden justify-center items-center'>
-          <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[300px] sm:w-[430px] md:w-[430px] h-[100px] lg:h-[100px] lg:w-full'>
+        <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
+          <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[400px] sm:w-[430px] md:w-[500px] lg:w-full h-[80px] sm:h-[100px] lg:h-[100px]'>
             <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
               <ScrollVelocity
                 texts={["`works` — projects —"]}
                 velocity={70}
-                className='font-inter text-[clamp(2.5rem,4vw,3.5rem)] leading-none'
+                className='font-inter text-[clamp(2rem,5vw,4rem)] leading-none'
               />
             </Suspense>
           </div>
         </BigBentoCard>
 
-        <BigBentoCard className='grid grid-cols-1 lg:grid-cols-2 p-2'>
-          {/* Sort button */}
-          <div className='flex justify-start mt-2 lg:mt-0 order-2 lg:order-1'>
+        {/* Filter Section with higher z-index */}
+        <BigBentoCard className='relative grid gap-4 grid-cols-1 lg:grid-cols-2 p-4 z-50'>
+          {/* Sort Button */}
+          <div className='relative w-full max-w-[200px] order-2 lg:order-1'>
             <button
               onClick={() => setSortDropdownOpen((prev) => !prev)}
-              className='w-full lg:w-32 text-base rounded-lg transition-all duration-200 text-ptext'>
-              <span
-                className={`flex flex-row lg:justify-center items-center rounded-lg w-full px-2 py-2 transition-colors duration-200 ${
-                  sortDropdownOpen ? "bg-background text-white font-semibold" : "hover:bg-background text-ptext"
-                }`}>
-                <FadersHorizontalIcon
-                  size={20}
-                  className={`${sortDropdownOpen ? "rotate-90 transition-transform" : "rotate-0 transition-transform"}`}
-                />
-                <p className='pl-2 text-base'>Filter</p>
-              </span>
-            </button>
-          </div>
-
-          {/* Categories / Filter Navigation */}
-          <div className='flex gap-2 order-1 lg:order-2'>
-            <button
-              onClick={() => setSelectedCategory(undefined)}
-              className={`w-full text-base rounded-lg transition-all duration-200 ${
-                selectedCategory === undefined
-                  ? "bg-background text-white font-semibold"
-                  : "text-ptext hover:bg-background transition-all duration-200"
-              }`}>
-              All
+              className='flex items-center justify-center w-full gap-2 px-4 py-3 text-sm text-ptext bg-bgoutline rounded-lg hover:bg-background transition-all duration-200 active:scale-95'>
+              <FadersHorizontalIcon
+                size={20}
+                className={`transition-transform duration-200 ${sortDropdownOpen ? "rotate-90" : "rotate-0"}`}
+              />
+              Filter & Sort
             </button>
 
-            {uniqueCategories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory((prev) => (prev === cat ? undefined : cat))}
-                className={`w-full py-2 text-base rounded-lg transition-all duration-200 ${
-                  selectedCategory === cat
-                    ? "bg-background text-white font-semibold"
-                    : "text-ptext hover:bg-background transition-all duration-200"
-                }`}>
-                {cat.charAt(0).toUpperCase() + cat.slice(1)}
-              </button>
-            ))}
-          </div>
-        </BigBentoCard>
+            {/* Overlay for mobile */}
+            {sortDropdownOpen && <div className='fixed inset-0 bg-black/20 backdrop-blur-sm z-[100] lg:hidden' />}
 
-        {/* Sort Dropdown Below */}
-        <div className='absolute max-w-full'>
-          {sortDropdownOpen && (
-            <div
-              ref={dropdownRef}
-              className='relative top-52 lg:top-44 left-0 w-full lg:w-80 z-20 bg-bgcards border border-bgoutline rounded-2xl p-6 shadow-lg'>
-              <div className='flex items-center justify-between mb-4 font-sf'>
-                {/* Header */}
-                <h3 className='text-lg font-semibold text-ptext'>Filter Projects</h3>
-                {/* Close button */}
-                <button
-                  onClick={() => setSortDropdownOpen(false)}
-                  className='p-2 rounded-full hover:bg-background transition'>
-                  <FaX size={12} className='text-ptext' />
-                </button>
-              </div>
+            {/* Filter Dropdown */}
+            {sortDropdownOpen && (
+              <div
+                ref={dropdownRef}
+                className='lg:absolute fixed top-80 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                lg:top-full lg:left-0 lg:transform-none lg:translate-x-0 lg:translate-y-0
+                mt-0 lg:mt-2 z-[101] w-[calc(100vw-2rem)] max-w-sm lg:w-80
+                bg-bgcards border border-bgoutline rounded-2xl p-6 shadow-2xl
+                animate-in fade-in-0 zoom-in-95 duration-200'>
+                <div className='flex items-center justify-between mb-6'>
+                  <h3 className='text-lg font-semibold text-ptext'>Filter Projects</h3>
+                  <button
+                    onClick={() => setSortDropdownOpen(false)}
+                    className='p-2 rounded-full hover:bg-background transition-colors duration-200 active:scale-95'>
+                    <FaX size={14} className='text-ptext' />
+                  </button>
+                </div>
 
-              {/* Filter Sections */}
-              <div className='grid grid-cols-1 gap-4 font-sf'>
-                {/* Year Section */}
-                <div>
-                  <p className='font-semibold text-sm mb-2'>By Year</p>
-                  <div className='grid grid-cols-3 gap-2'>
+                {/* Year Filter */}
+                <div className='mb-6'>
+                  <p className='font-semibold text-sm mb-3 text-ptext/70'>Filter by Year</p>
+                  <div className='grid grid-cols-2 sm:grid-cols-3 gap-2'>
                     {uniqueYears.map((year) => (
                       <button
                         key={year}
@@ -199,11 +172,11 @@ export default function Works() {
                             ...prev,
                             year: prev.year === year ? undefined : year,
                           }));
-                          setSortDropdownOpen(true);
+                          setSortDropdownOpen(false);
                         }}
-                        className={`text-sm py-1 rounded-full transition ${
+                        className={`text-xs py-2 px-3 rounded-xl transition-all duration-200 ${
                           selectedSort.year === year
-                            ? "bg-background text-white font-medium"
+                            ? "bg-background text-white font-medium shadow-sm"
                             : "bg-bgoutline text-ptext hover:bg-background/50"
                         }`}>
                         {year}
@@ -212,11 +185,11 @@ export default function Works() {
                   </div>
                 </div>
 
-                {/* frontend Section */}
-                <div>
-                  <p className='font-semibold text-sm mb-2'>By Parts of Application</p>
-                  <div className='grid grid-cols-3 gap-2 max-h-28 overflow-y-auto pr-1'>
-                    {uniqueFrontend.map((lang) => (
+                {/* Language Filter */}
+                <div className='mb-6'>
+                  <p className='font-semibold text-sm mb-3 text-ptext/70'>Filter by Technology</p>
+                  <div className='grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-32 overflow-y-auto pr-1 scrollbar-thin'>
+                    {uniquetech.map((lang) => (
                       <button
                         key={lang}
                         onClick={() => {
@@ -224,82 +197,140 @@ export default function Works() {
                             ...prev,
                             language: prev.language === lang ? undefined : lang,
                           }));
-                          setSortDropdownOpen(true);
+                          setSortDropdownOpen(false);
                         }}
-                        className={`flex justify-center items-center gap-1 text-sm py-1 px-2 rounded-full transition ${
+                        className={`text-[0.66rem] px-3 py-2 rounded-xl transition-all duration-200 truncate ${
                           selectedSort.language === lang
-                            ? "bg-background text-white font-medium"
+                            ? "bg-background text-white font-medium shadow-sm"
                             : "bg-bgoutline text-ptext hover:bg-background/50"
                         }`}>
-                        <span>{lang}</span>
+                        {lang}
                       </button>
                     ))}
                   </div>
                 </div>
 
-                {/* Reset All */}
                 <button
                   onClick={() => {
                     resetFilters();
-                    setSortDropdownOpen(true);
+                    setSortDropdownOpen(false);
                   }}
-                  className='w-full flex items-center justify-center gap-2 py-2 border border-ptext
-                  rounded-full text-xs text-ptext hover:bg-background/30 transition'>
-                  <RefreshCw size={12} />
-                  Reset All
+                  className='w-full flex items-center justify-center gap-2 py-3 border border-ptext rounded-xl text-sm text-ptext hover:bg-background/30 transition-all duration-200 active:scale-95'>
+                  <RefreshCw size={14} />
+                  Reset All Filters
                 </button>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+
+          {/* Category Buttons */}
+          <div className='flex flex-wrap items-center gap-2 justify-start lg:justify-end order-1 lg:order-2'>
+            <button
+              onClick={() => setSelectedCategory(undefined)}
+              className={`px-4 py-2 text-sm rounded-xl transition-all duration-200 active:scale-95 ${
+                selectedCategory === undefined
+                  ? "bg-background text-white font-semibold shadow-sm"
+                  : "text-ptext hover:bg-background/50"
+              }`}>
+              All Projects
+            </button>
+
+            {uniqueCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory((prev) => (prev === cat ? undefined : cat))}
+                className={`px-4 py-2 text-sm rounded-xl transition-all duration-200 active:scale-95 ${
+                  selectedCategory === cat
+                    ? "bg-background text-white font-semibold shadow-sm"
+                    : "text-ptext hover:bg-background/50"
+                }`}>
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </button>
+            ))}
+          </div>
+        </BigBentoCard>
+
+        {/* Results Count */}
+        {(selectedCategory || selectedSort.year || selectedSort.language) && (
+          <div className='px-2'>
+            <p className='text-sm text-ptext text-start'>
+              Showing {filteredWorks.length} of {works.length} projects
+              {selectedCategory && ` in ${selectedCategory}`}
+              {selectedSort.year && ` from ${selectedSort.year}`}
+              {selectedSort.language && ` using ${selectedSort.language}`}
+            </p>
+          </div>
+        )}
 
         {/* Results: Filtered Cards */}
-        <section className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
-          {filteredWorks.map((work) => (
-            <a href={work.url} key={work.id} className='h-full'>
-              <BigBentoCard className='h-full flex flex-col justify-between group overflow-hidden hover:bg-bgoutline transition-all duration-200'>
-                {/* Top: Image content */}
-                <div className='p-2 overflow-hidden'>
-                  <span className='bg-background rounded-xl block'>
-                    <img
-                      src={work.image}
-                      loading="lazy"
-                      alt={work.title}
-                      className='w-full aspect-video p-6 rounded-lg object-cover scale-90
-              transition-transform duration-500 ease-in-out group-hover:scale-100'
-                    />
-                  </span>
-                </div>
-
-                {/* Bottom: Text content */}
-                <div className='flex flex-col p-2 space-y-1'>
-                  {/* Tag Icons */}
-                  <div className='flex flex-wrap items-center gap-1 font-sf'>
-                    {[...(work.frontend || []), ...(work.databases || [])].slice(0, 4).map((tag, index) => (
-                      <span
-                        key={index}
-                        className='flex items-center gap-1 px-2 py-1 bg-background border border-ptext text-xs text-ptext rounded-full'>
-                        <span>{tag.trim()}</span>
-                        <span>{frontendIcons[tag.trim()] || databaseIcons[tag.trim()] || ""}</span>
-                      </span>
-                    ))}
-
-                    {work.frontend.length + work.databases.length > 4 && (
-                      <span className='px-2 border border-ptext text-xs text-ptext rounded-full'>
-                        +{work.frontend.length + work.databases.length - 4}
-                      </span>
-                    )}
+        <section className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-2'>
+          {filteredWorks.length > 0 ? (
+            filteredWorks.map((work) => (
+              <a href={work.url} key={work.id} className='h-full'>
+                <BigBentoCard className='h-full flex flex-col justify-between group overflow-hidden hover:bg-bgoutline transition-all duration-300 hover:shadow-lg hover:scale-[1.02]'>
+                  {/* Top: Image content */}
+                  <div className='p-3 overflow-hidden'>
+                    <span className='bg-background rounded-xl block overflow-hidden'>
+                      <img
+                        src={work.image}
+                        loading='lazy'
+                        alt={work.title}
+                        className='w-full aspect-video p-4 sm:p-6 rounded-lg object-cover scale-90
+                        transition-transform duration-500 ease-out group-hover:scale-100'
+                      />
+                    </span>
                   </div>
-                  <span className='flex justify-between items-center'>
-                    <p className='font-semibold text-xl lg:text-2xl'>{work.title}</p>
-                    {/* Title and Description */}
-                    <p className='text-center text-xs bg-background text-ptext rounded-full px-2 py-1'>{work.year}</p>
-                  </span>
-                  <p className='text-pretty text-ptext text-base font-sf'>{work.description}</p>
-                </div>
-              </BigBentoCard>
-            </a>
-          ))}
+
+                  {/* Bottom: Text content */}
+                  <div className='flex flex-col p-3 space-y-3'>
+                    {/* Tag Icons */}
+                    <div className='flex flex-wrap items-center gap-2 font-sf'>
+                      {[...(work.tech || []), ...(work.databases || [])].slice(0, 4).map((tag, index) => (
+                        <span
+                          key={index}
+                          className='flex items-center gap-1 px-3 py-1.5 bg-background border border-ptext text-xs text-ptext rounded-full hover:bg-bgoutline transition-colors duration-200'>
+                          <span className='truncate max-w-20'>{tag.trim()}</span>
+                          <span>{techIcons[tag.trim()] || databaseIcons[tag.trim()] || ""}</span>
+                        </span>
+                      ))}
+
+                      {work.tech.length + work.databases.length > 4 && (
+                        <span className='px-3 py-1.5 border border-ptext text-xs text-ptext rounded-full bg-background'>
+                          +{work.tech.length + work.databases.length - 4}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className='flex justify-between items-start gap-3'>
+                      <div className='flex-1 min-w-0'>
+                        <h3 className='font-semibold text-lg sm:text-xl lg:text-2xl text-white truncate'>
+                          {work.title}
+                        </h3>
+                        <p className='text-pretty text-ptext text-sm sm:text-base font-sf mt-1 line-clamp-2 lg:line-clamp-none'>
+                          {work.description}
+                        </p>
+                      </div>
+                      {/* Year badge */}
+                      <span className='flex-shrink-0 text-xs bg-background text-ptext rounded-full px-3 py-1.5 font-medium'>
+                        {work.year}
+                      </span>
+                    </div>
+                  </div>
+                </BigBentoCard>
+              </a>
+            ))
+          ) : (
+            <div className='col-span-full flex flex-col items-center justify-center h-[400px] text-center'>
+              <p className='text-lg text-ptext mb-2'>No projects found</p>
+              <p className='text-sm text-ptext/70 mb-4'>Try adjusting your filters or search criteria</p>
+              <button
+                onClick={resetFilters}
+                className='flex items-center gap-2 px-4 py-2 bg-background text-white rounded-lg hover:bg-bgoutline transition-all duration-200'>
+                <RefreshCw size={16} />
+                Reset Filters
+              </button>
+            </div>
+          )}
         </section>
       </div>
     </motion.div>
