@@ -33,7 +33,6 @@ Welcome to the source code of my personal portfolio website. It is a curated spa
 - Fully responsive design
 - Reusable components and modular structure
 - Contact form ready (extendable with [FormSubmit](https://formsubmit.co/))
-- Theme-ready design system (light/dark)
 
 ---
 
@@ -58,7 +57,7 @@ Inspiration & Acknowledgements
 - shuding/cobe – Lightweight globe visual
 - Framer Motion and ReactBits – React animations
 - Aceternity UI
-- ForSubmit.co
+- FormSubmit.co
 
 ---
 
