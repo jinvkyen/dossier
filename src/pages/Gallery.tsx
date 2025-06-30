@@ -23,7 +23,6 @@ const gallery = [
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g7_xvkdmx.jpg",
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g10_uud7hy.jpg",
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g12_dwzngw.jpg",
-  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g1_tdwn0n.jpg",
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g13_m7jlsh.jpg",
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g14_qbszwl.jpg",
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g11_vserm6.jpg",
@@ -95,7 +94,7 @@ export default function Gallery() {
               hover:bg-bgoutline transition-all duration-200 scroll-smooth snap-mandatory'>
           {/* Image: Carousel */}
           <div className='p-2 overflow-hidden'>
-            <div className='relative w-full h-[500px] rounded-xl bg-background'>
+            <div className='relative w-full h-[500px] lg:h-svh rounded-xl bg-background'>
               <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                   key={index}
