@@ -51,7 +51,7 @@ export default function Contact() {
             <div className='flex flex-col p-2 md:p-6 space-y-3 w-full'>
               <IconCard className='bg-bgoutline' icon={<FontAwesomeIcon icon={faLink} className='text-2xl' />} />
               <p className='font-semibold'>
-                <span className='text-3xl'>Call Me</span>
+                <span className='text-3xl'>Link Me</span>
               </p>
               <a href='https://ayenjtt.jobs180.com/' target='_blank' className='flex items-center mt-2'>
                 <button className='backdrop-blur-sm rounded-2xl w-full h-10 text-black bg-white hover:bg-opacity-80 font-inter transition-all duration-300 ease-out flex items-center justify-center font-semibold'>

@@ -114,7 +114,7 @@ export default function MobileNav() {
           </div>
 
           {/* Buttons of cards */}
-          <div className='z-10 mb-2'>
+          <div className='z-10 mb-4'>
             {bentoCards.map((card: any) => (
               <Link to={card.link} key={card.id} className='group no-underline'>
                 <BentoCard className='bg-bgcards p-3 mt-2'>

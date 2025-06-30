@@ -4,6 +4,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      animation: {
+        radar: 'radar-ping 3s infinite ease-in-out',
+      },
+      keyframes: {
+        'radar-ping': {
+          '0%': { transform: 'scale(1)', opacity: '0.12' },
+          '70%': { transform: 'scale(3.5)', opacity: '0' },
+          '100%': { transform: 'scale(3.5)', opacity: '0' },
+        },
+      },
       fontFamily: {
         sf: ["SF Pro Display", "sans-serif"],
         inter: ["Inter", "sans-serif"],
