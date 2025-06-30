@@ -32,7 +32,7 @@ Welcome to the source code of my personal portfolio website. It is a curated spa
 - Real-time clock and 3D globe for visual design
 - Fully responsive design
 - Reusable components and modular structure
-- Contact form ready (extendable with EmailJS or API route)
+- Contact form ready (extendable with [FormSubmit](https://formsubmit.co/))
 - Theme-ready design system (light/dark)
 
 ---
@@ -41,13 +41,10 @@ Welcome to the source code of my personal portfolio website. It is a curated spa
 ├── public/                  # Static files (images, icons, etc.)
 ├── src/
 │   ├── components/          # Shared components
-│   │   └── ui/              # UI-specific reusable components (buttons, cards, etc.)
-│   ├── pages/               # Top-level routes/views (e.g., Home, About, Contact)
-│   ├── features/            # Feature-based sections (e.g., projects, testimonials)
-│   ├── designs/             # Figma exports, SVGs, design mockups (optional)
-│   ├── lib/                 # Utility functions, constants, API configs
-│   ├── hooks/               # Custom React hooks
+|   ├── data/                # data used for key mapping values.
+│   ├── designs/             # Figma / Sketchup designs
 │   └── layout/              # Layout wrappers like Menu, and App layout
+│   ├── pages/               # Top-level routes/views (e.g., Home, About, Contact)
 ├── tailwind.config.js       # TailwindCSS configuration
 ├── tsconfig.json            # TypeScript compiler configuration
 └── vite.config.ts           # Vite build and development config
@@ -61,6 +58,7 @@ Inspiration & Acknowledgements
 - shuding/cobe – Lightweight globe visual
 - Framer Motion and ReactBits – React animations
 - Aceternity UI
+- ForSubmit.co
 
 ---
 
