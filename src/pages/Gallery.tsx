@@ -18,10 +18,23 @@ const container: Variants = {
 };
 
 const gallery = [
-  "https://res.cloudinary.com/diolcqc1f/image/upload/v1750359019/web-portfolio_tblfbw.png",
-  "https://res.cloudinary.com/diolcqc1f/image/upload/v1750750547/civix_kqqexu.png",
-  "https://res.cloudinary.com/diolcqc1f/image/upload/v1750750711/mockup-1_ohqniq.png",
-  "https://res.cloudinary.com/diolcqc1f/image/upload/v1750750773/env-closed_cpzi54.png",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g9_lypw41.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g8_zdornb.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g7_xvkdmx.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g10_uud7hy.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g12_dwzngw.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g1_tdwn0n.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g13_m7jlsh.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g14_qbszwl.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g11_vserm6.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266630/g15_qpjp4c.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266654/g6_uuhgip.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266642/g5_qz1ztz.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266654/g4_duhoim.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266631/g3_xyz5ai.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266703/g16_rt7h3x.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266631/g2_eefyhz.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266989/g17_dr7tqa.jpg",
 ];
 
 export default function Gallery() {
@@ -67,7 +80,7 @@ export default function Gallery() {
       <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
         <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
-          <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[400px] sm:w-[430px] md:w-[500px] lg:w-full h-[80px] sm:h-[120px] lg:h-[120px]'>
+          <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[400px] sm:w-[430px] md:w-[500px] lg:w-full h-[100px] sm:h-[120px] lg:h-[120px]'>
             <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
               <ScrollVelocity
                 texts={["Gallery —"]}
@@ -82,7 +95,7 @@ export default function Gallery() {
               hover:bg-bgoutline transition-all duration-200 scroll-smooth snap-mandatory'>
           {/* Image: Carousel */}
           <div className='p-2 overflow-hidden'>
-            <div className='relative w-full h-96 rounded-xl bg-background'>
+            <div className='relative w-full h-[500px] rounded-xl bg-background'>
               <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                   key={index}
