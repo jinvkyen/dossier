@@ -3,21 +3,22 @@ import { SiLinkedin, SiGithub, SiBehance, SiCodepen, SiHackerrank, SiLeetcode, S
 import IconCard from "./IconCard";
 
 const socialsTop = [
-  { id: "linkedin", icon: <SiLinkedin className="text-2xl lg:text-lg" />, url: "https://www.linkedin.com/in/ayenjtt/" },
-  { id: "github", icon: <SiGithub className="text-2xl lg:text-lg" />, url: "https://github.com/jinvkyen" },
-  { id: "behance", icon: <SiBehance className="text-2xl lg:text-lg" />, url: "https://www.behance.net/ayenjtt" },
-  { id: "codepen", icon: <SiCodepen className="text-2xl lg:text-lg" />, url: "https://codepen.io/jinvkyen" },
+  { id: "linkedin", icon: <SiLinkedin className="text-2xl md:text-xl" />, url: "https://www.linkedin.com/in/ayenjtt/" },
+  { id: "github", icon: <SiGithub className="text-2xl md:text-xl" />, url: "https://github.com/jinvkyen" },
+  { id: "behance", icon: <SiBehance className="text-2xl md:text-xl" />, url: "https://www.behance.net/ayenjtt" },
+  { id: "codepen", icon: <SiCodepen className="text-2xl md:text-xl" />, url: "https://codepen.io/jinvkyen" },
 ];
 
 const socialsBottom = [
-  { id: "hackerrank", icon: <SiHackerrank className="text-2xl lg:text-lg" />, url: "https://www.hackerrank.com/profile/ayenjtt" },
-  { id: "leetcode", icon: <SiLeetcode className="text-2xl lg:text-lg" />, url: "https://leetcode.com/u/jinvkyen/" },
-  { id: "letterboxd", icon: <SiLetterboxd className="text-2xl lg:text-lg" />, url: "https://letterboxd.com/filmswjin/" },
+  { id: "hackerrank", icon: <SiHackerrank className="text-2xl md:text-xl" />, url: "https://www.hackerrank.com/profile/ayenjtt" },
+  { id: "leetcode", icon: <SiLeetcode className="text-2xl md:text-xl" />, url: "https://leetcode.com/u/jinvkyen/" },
+  { id: "letterboxd", icon: <SiLetterboxd className="text-2xl md:text-xl" />, url: "https://letterboxd.com/filmswjin/" },
   { id: "placeholder", icon: null, url: "" },
 ];
 
 export default function Socials() {
-  const baseClass = "bg-bgoutline/50 border border-1 border-bghover w-16 h-16 lg:w-10 xl:w-14 lg:h-10 xl:h-14";
+  const baseClass =
+    "bg-bgoutline/50 border border-1 border-bghover w-16 h-16 md:w-16 md:h-16 lg:w-10 lg:h-10 xl:w-16 xl:h-16";
   const hoverableClass = "hover:bg-bghover cursor-pointer";
 
   const renderSocials = (

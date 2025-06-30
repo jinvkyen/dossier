@@ -40,3 +40,47 @@ body {
   right: 0;
   background: linear-gradient(to left, rgb(29, 29, 29), transparent);
 }
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  backdrop-blur: blur(4px);
+  background-color: #444444;
+  padding: .5rem;
+  &::placeholder{
+    color: #ffffff;
+  }
+
+}
+.area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: fit-content;
+  font-weight: 600;
+  color: #ffffff;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  backdrop-blur: blur(4px);
+  background-color: #444444;
+  padding: .5rem;
+  &::placeholder{
+    color: #ffffff;
+  }
+}

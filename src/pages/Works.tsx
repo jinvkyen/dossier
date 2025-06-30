@@ -107,17 +107,17 @@ export default function Works() {
 
   return (
     <motion.div
-      className='bg-background flex overflow-hidden scroll-smooth relative'
+      className='bg-background flex overflow-hidden scroll-smooth relative z-0'
       variants={container}
       initial='hidden'
       animate='show'>
       <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
         {/* Top Section */}
         <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
-          <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[400px] sm:w-[430px] md:w-[500px] lg:w-full h-[80px] sm:h-[100px] lg:h-[100px]'>
+          <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[400px] sm:w-[430px] md:w-[500px] lg:w-full h-[80px] sm:h-[120px] lg:h-[120px]'>
             <Suspense fallback={<div className='text-ptext font-inter'>Loading...</div>}>
               <ScrollVelocity
-                texts={["`works` — projects —"]}
+                texts={["`works` — Projects —"]}
                 velocity={70}
                 className='font-inter text-[clamp(2rem,5vw,4rem)] leading-none'
               />
