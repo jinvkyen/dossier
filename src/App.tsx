@@ -12,6 +12,7 @@ import At from "./designs/At";
 import Contact from "./pages/Contact";
 import Thanks from "./pages/Thanks";
 import Loader from "./components/Loader";
+import Civix from "./designs/Civix";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -40,6 +41,7 @@ export default function App() {
         <Route path='works' element={<Works />} />
         <Route path='designs' element={<Design />} />
         <Route path='/designs-@t' element={<At />} />
+        <Route path='/designs-civix' element={<Civix />} />
         <Route path='achievements' element={<Achievement />} />
         <Route path='gallery' element={<Gallery />} />
         <Route path='contact' element={<Contact />} />

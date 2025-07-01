@@ -93,8 +93,13 @@ export default function NavActive() {
     },
   ];
 
-  // Get current path and match it to a card
-  const activeCard = bentoCards.find((card) => card.link === location.pathname);
+  // Get current path and match it to a card and also pathname that starts with / or - for dynamic UI
+  const activeCard = bentoCards.find(
+    (card) =>
+      location.pathname === card.link ||
+      location.pathname.startsWith(card.link + "/") ||
+      location.pathname.startsWith(card.link + "-")
+  );
   const isMainMenu = location.pathname === "index" || !activeCard;
   return (
     <motion.div

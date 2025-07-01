@@ -9,11 +9,11 @@ import Button from "../components/Button";
 import Socials from "../components/Socials";
 
 const container: Variants = {
-  hidden: { opacity: 0, x: 10 },
+  hidden: { opacity: 0, x: 5 },
   show: {
     opacity: 1,
     x: 0,
-    transition: { type: "spring" as const, damping: 50, stiffness: 50 },
+    transition: { type: "spring" as const, damping: 100, stiffness: 100 },
   },
 };
 
@@ -91,7 +91,7 @@ export default function Gallery() {
         </BigBentoCard>
         <BigBentoCard
           className='h-full flex flex-col justify-between group overflow-hidden
-              hover:bg-bgoutline transition-all duration-200 scroll-smooth snap-mandatory'>
+              scroll-smooth'>
           {/* Image: Carousel */}
           <div className='p-2 overflow-hidden'>
             <div className='relative w-full h-[500px] lg:h-svh rounded-xl bg-background'>
@@ -105,7 +105,7 @@ export default function Gallery() {
                   animate='center'
                   exit='exit'
                   transition={{ duration: 0.6 }}
-                  className='absolute w-full h-full object-cover rounded-xl'
+                  className='absolute w-full h-full object-cover lg:object-contain rounded-xl'
                 />
               </AnimatePresence>
               <div className='absolute bottom-12 lg:bottom-3 left-1/2 transform -translate-x-1/2 bg-bgcards/40 p-3 rounded-full flex gap-2'>
@@ -118,9 +118,6 @@ export default function Gallery() {
                   />
                 ))}
               </div>
-            </div>{" "}
-            <div className='flex flex-row items-center justify-between'>
-              <p className='text-pretty text-white text-[clamp(1rem,2vw,2.5rem)] my-2 font-inter font-bold'></p>
             </div>
           </div>
         </BigBentoCard>
@@ -141,7 +138,7 @@ export default function Gallery() {
                 </div>
               </div>
               <p className='font-semibold mt-2'>
-                <span className='text-4xl'>Open to work</span>
+                <span className='text-4xl'>Open to new work</span>
               </p>
               <p className='text-pretty text-ptext text-base my-2 font-sf'>Have a project or opportunity in mind?</p>
               <Link to={"/contact"} className='flex items-center mt-2'>

@@ -17,7 +17,7 @@ const container: Variants = {
   },
 };
 
-type At = {
+type Civix = {
   id: string;
   title: string;
   image: string;
@@ -25,22 +25,22 @@ type At = {
   subimages: string[];
 };
 
-const ats: At[] = [
+const cvx: Civix[] = [
   {
     id: "1",
     title: "@T",
     image: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750358845/MacBook-_13_xyd6hf.png",
     url: "/designs-@t",
     subimages: [
-      "https://res.cloudinary.com/diolcqc1f/image/upload/v1750358845/MacBook-_13_xyd6hf.png",
-      "https://res.cloudinary.com/diolcqc1f/image/upload/v1750750711/mockup-1_ohqniq.png",
-      "https://res.cloudinary.com/diolcqc1f/image/upload/v1751381030/at3_nmk6tm.png",
-      "https://res.cloudinary.com/diolcqc1f/image/upload/v1751381283/at4_jqqxjf.png",
+      "https://res.cloudinary.com/diolcqc1f/image/upload/v1751386187/4d149269-44ce-41eb-a2a6-5b8b65d8bbac.png",
+      "https://res.cloudinary.com/diolcqc1f/image/upload/v1751385946/9f55a185-730f-4074-bdb9-36adf3c7fd6f.png",
+      "https://res.cloudinary.com/diolcqc1f/image/upload/v1751385912/c16ed689-134b-466a-bfc7-6c4eeb7775c9.png",
+      "https://res.cloudinary.com/diolcqc1f/image/upload/v1751385804/civix_dziegt.png",
     ],
   },
 ];
 
-export default function At() {
+export default function Civix() {
   return (
     <motion.div
       className='bg-background flex overflow-hidden snap-start'
@@ -61,7 +61,7 @@ export default function At() {
         <main className='grid grid-cols-1 gap-2'>
           {/*Design contents: Mapped Cards */}
           <section className='grid grid-cols-1 gap-2 order-2'>
-            {ats.map((ds) =>
+            {cvx.map((ds) =>
               ds.subimages.map((img, index) => (
                 <BigBentoCard
                   key={`${ds.id}-${index}`}

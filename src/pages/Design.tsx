@@ -43,15 +43,15 @@ export default function Design() {
                       className='w-full aspect-video rounded-lg object-cover transition-transform duration-500 ease-in-out z-0'
                     />
                   </span>
-                  <div className='flex flex-row items-center justify-between'>
+                  <div className='flex flex-row items-center justify-between mt-2'>
                     <p className='text-pretty text-white text-[clamp(1rem,2vw,2.5rem)] my-2 font-inter font-bold'>
                       {ds.title}
                     </p>
                     <p
-                      className='bg-zinc-500/50 border border-zinc-400 text-white text-base transition-all block
+                      className='bg-bgoutline border border-zinc-400 text-white text-base transition-all block
                                 duration-300 ease-out font-semibold px-4 py-1 rounded-xl'>
                       <span className='flex items-center justify-center'>
-                        <span className='hidden md:flex'>View Case Study</span>{" "}
+                        <span className='hidden sm:flex'>View Case Study</span>{" "}
                         <FontAwesomeIcon icon={faArrowRight} className='ml-1' />
                       </span>
                     </p>

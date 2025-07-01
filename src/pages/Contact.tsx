@@ -69,7 +69,7 @@ export default function Contact() {
               </p>
               <button
                 onClick={handleCopy}
-                className='backdrop-blur-sm rounded-2xl w-full h-10 text-white bg-bgoutline hover:bg-bghover border border-bgoutline font-inter transition-all duration-300 ease-out flex items-center justify-center font-semibold'>
+                className='backdrop-blur-sm rounded-2xl w-full h-10 text-white bg-bgoutline/50 hover:bg-bghover/50 border border-bghover font-inter transition-all duration-300 ease-out flex items-center justify-center font-semibold'>
                 {copied ? "Copied!" : "Copy to Clipboard"}
               </button>
             </div>
@@ -103,7 +103,7 @@ export default function Contact() {
               <IconCard className='bg-bgoutline' icon={<FaEnvelopeOpen className='text-2xl' />} />
               <p className='font-semibold text-3xl'>Or send a message directly!</p>
 
-              <div className='flex w-full justify-between gap-2'>
+              <div className='flex flex-col lg:flex-row w-full justify-between gap-4'>
                 <input
                   className='input border border-bgoutline rounded-xl px-4 py-2 bg-white text-black placeholder-gray-400 w-1/2'
                   type='text'

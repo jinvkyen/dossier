@@ -9,11 +9,11 @@ import { FaX } from "react-icons/fa6";
 import { Suspense, lazy } from "react";
 
 const container: Variants = {
-  hidden: { opacity: 0, x: 10 },
+  hidden: { opacity: 0, x: 5 },
   show: {
     opacity: 1,
     x: 0,
-    transition: { type: "spring" as const, damping: 50, stiffness: 50 },
+    transition: { type: "spring" as const, damping: 100, stiffness: 100 },
   },
 };
 
