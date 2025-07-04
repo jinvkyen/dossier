@@ -23,7 +23,7 @@ export default function Design() {
       variants={container}
       initial='hidden'
       animate='show'>
-      <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
+      <div className='h-full w-svw overflow-y-auto p-2 grid'>
         {/*Design: Mapped Cards */}
         <section className='grid grid-cols-1 gap-2 order-2 md:order-1'>
           {designs.map((ds: any) => (
@@ -51,7 +51,7 @@ export default function Design() {
                       className='bg-bgoutline border border-zinc-400 text-white text-base transition-all block
                                 duration-300 ease-out font-semibold px-4 py-1 rounded-xl'>
                       <span className='flex items-center justify-center'>
-                        <span className='hidden sm:flex'>View Case Study</span>{" "}
+                        <span className='hidden sm:flex'>View Design</span>{" "}
                         <FontAwesomeIcon icon={faArrowRight} className='ml-1' />
                       </span>
                     </p>

@@ -50,8 +50,8 @@ export default function Achievement() {
             <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-full'>
               <Suspense fallback={<div className='text-ptext/20 font-inter'>Loading...</div>}>
                 <ScrollVelocity
-                  texts={["`basic education` — certifications — "]}
-                  velocity={70}
+                  texts={["fundamental—intermediate—professional — certifications — "]}
+                  velocity={80}
                   className='font-inter text-[clamp(2.5rem,5vw,3.5rem)] leading-none'
                 />
               </Suspense>

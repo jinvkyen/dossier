@@ -47,7 +47,7 @@ export default function At() {
       variants={container}
       initial='hidden'
       animate='show'>
-      <div className='h-full w-svw overflow-y-auto p-2 grid gap-2'>
+      <div className='h-full w-svw overflow-y-auto grid gap-2 px-2'>
         {/* Top Section: moving title */}
         <BigBentoCard className='h-full flex overflow-hidden justify-center items-center'>
           <div className='scroll-velocity-vignette flex flex-col justify-center items-center w-[400px] sm:w-[430px] md:w-[500px] lg:w-full h-[80px] sm:h-[120px] lg:h-[120px]'>
@@ -102,7 +102,7 @@ export default function At() {
         </main>
           <Link to={"/designs"}>
             <button
-              className='w-full order-4 bg-bgoutline border border-zinc-400 text-white text-base transition-all block
+              className='lg:hidden w-full order-4 bg-bgoutline border border-zinc-400 text-white text-base transition-all block
                                         duration-300 ease-out font-semibold px-4 py-1 rounded-xl hover:bg-bghover'>
               <span className='flex items-center justify-center'>
                 <span className='flex'>Back to all designs</span> <FontAwesomeIcon icon={faArrowUp} className='ml-1' />

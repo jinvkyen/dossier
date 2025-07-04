@@ -34,6 +34,7 @@ const gallery = [
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266703/g16_rt7h3x.jpg",
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266631/g2_eefyhz.jpg",
   "https://res.cloudinary.com/diolcqc1f/image/upload/v1751266989/g17_dr7tqa.jpg",
+  "https://res.cloudinary.com/diolcqc1f/image/upload/v1751636519/e88c1610-41cc-47cd-b54b-2cf98077dc09.png",
 ];
 
 export default function Gallery() {

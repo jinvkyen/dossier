@@ -48,7 +48,7 @@ export default function Menu() {
       icon: <FontAwesomeIcon icon={faHouse} className='text-lg' />,
       description: "Working at the intersection of creative and digital design.",
       link: "/",
-      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg",
     },
     {
       id: 2,
