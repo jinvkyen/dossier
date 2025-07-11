@@ -64,7 +64,6 @@ export default function Works() {
   }, [selectedCategory, selectedSort]);
 
   const uniqueYears = [...new Set(works.map((w) => w.year))];
-  const uniquetech = [...new Set(works.flatMap((w) => w.tech))];
   const uniqueCategories = [...new Set(works.map((w) => w.category))];
 
   const filteredWorks = works.filter((w) => {
@@ -136,7 +135,7 @@ export default function Works() {
                 size={20}
                 className={`transition-transform duration-200 ${sortDropdownOpen ? "rotate-90" : "rotate-0"}`}
               />
-              Filter & Sort
+              Filter
             </button>
 
             {/* Overlay for mobile */}
@@ -152,7 +151,7 @@ export default function Works() {
                 bg-bgcards border border-bgoutline rounded-2xl p-6 shadow-2xl
                 animate-in fade-in-0 zoom-in-95 duration-200'>
                 <div className='flex items-center justify-between mb-6'>
-                  <h3 className='text-lg font-semibold text-ptext'>Filter Projects</h3>
+                  <h3 className='text-lg font-semibold text-ptext'>Projects</h3>
                   <button
                     onClick={() => setSortDropdownOpen(false)}
                     className='p-2 rounded-full hover:bg-background transition-colors duration-200 active:scale-95'>
@@ -180,31 +179,6 @@ export default function Works() {
                             : "bg-bgoutline text-ptext hover:bg-background/50"
                         }`}>
                         {year}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Language Filter */}
-                <div className='mb-6'>
-                  <p className='font-semibold text-sm mb-3 text-ptext/70'>Filter by Technology</p>
-                  <div className='grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-32 overflow-y-auto pr-1 scrollbar-thin'>
-                    {uniquetech.map((lang) => (
-                      <button
-                        key={lang}
-                        onClick={() => {
-                          setSelectedSort((prev) => ({
-                            ...prev,
-                            language: prev.language === lang ? undefined : lang,
-                          }));
-                          setSortDropdownOpen(false);
-                        }}
-                        className={`text-[0.66rem] px-3 py-2 rounded-xl transition-all duration-200 truncate ${
-                          selectedSort.language === lang
-                            ? "bg-background text-white font-medium shadow-sm"
-                            : "bg-bgoutline text-ptext hover:bg-background/50"
-                        }`}>
-                        {lang}
                       </button>
                     ))}
                   </div>

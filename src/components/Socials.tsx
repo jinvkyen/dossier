@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import { SiLinkedin, SiGithub, SiBehance, SiCodepen, SiHackerrank, SiLeetcode, SiLetterboxd } from "react-icons/si";
+import { SiLinkedin, SiGithub, SiBehance, SiCodepen, SiHackerrank, SiLeetcode } from "react-icons/si";
 import IconCard from "./IconCard";
 
 const socialsTop = [
@@ -12,7 +12,8 @@ const socialsTop = [
 const socialsBottom = [
   { id: "hackerrank", icon: <SiHackerrank className="text-2xl md:text-xl" />, url: "https://www.hackerrank.com/profile/ayenjtt" },
   { id: "leetcode", icon: <SiLeetcode className="text-2xl md:text-xl" />, url: "https://leetcode.com/u/jinvkyen/" },
-  { id: "letterboxd", icon: <SiLetterboxd className="text-2xl md:text-xl" />, url: "https://letterboxd.com/filmswjin/" },
+  // { id: "letterboxd", icon: <SiLetterboxd className="text-2xl md:text-xl" />, url: "https://letterboxd.com/filmswjin/" },
+  { id: "placeholder", icon: null, url: "" },
   { id: "placeholder", icon: null, url: "" },
 ];
 
