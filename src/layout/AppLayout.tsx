@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import Menu from "./Menu";
 import NavActive from "./NavActive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function AppLayout() {
   return (
