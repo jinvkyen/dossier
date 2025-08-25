@@ -49,7 +49,7 @@ export default function NavActive() {
       icon: <FontAwesomeIcon icon={faHouse} className='text-lg' />,
       description: "Working at the intersection of creative and digital design.",
       link: "/",
-      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1750362122/me_mgfgmc.jpg",
+      onhover: "https://res.cloudinary.com/diolcqc1f/image/upload/v1756117096/Me_aowvex.jpg",
     },
     {
       id: 2,
