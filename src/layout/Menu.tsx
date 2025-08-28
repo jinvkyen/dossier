@@ -120,7 +120,6 @@ export default function Menu() {
             key={card.id}
             className='group no-underline'
             onClick={() => {
-              window.scrollTo({ top: 0, behavior: "smooth" });
               setActiveCard(card.id);
             }}>
             <BentoCard
