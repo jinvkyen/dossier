@@ -32,7 +32,7 @@ export default function Home() {
           {/* Right Column (Image) for Desktop View */}
           <div className='w-full hidden lg:flex lg:order-3 flex-1 flex-grow'>
             <img
-              src='https://res.cloudinary.com/diolcqc1f/image/upload/v1756117096/Me_aowvex.jpg'
+              src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
               className='w-full h-full rounded-xl border border-bgoutline object-cover'
               alt="Author's Image"
               loading='lazy'
@@ -77,7 +77,7 @@ export default function Home() {
             {/* Right Column (Image) for Mobile View */}
             <div className='w-full order-2 lg:hidden flex-1 flex-grow'>
               <img
-                src='https://res.cloudinary.com/diolcqc1f/image/upload/v1756117096/Me_aowvex.jpg'
+                src='https://res.cloudinary.com/diolcqc1f/image/upload/v1750918545/self_ph9ugb.jpg'
                 className='w-full h-full rounded-xl border border-bgoutline object-cover'
                 alt="Author's Image"
                 loading='lazy'

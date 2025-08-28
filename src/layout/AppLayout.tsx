@@ -2,7 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import Menu from "./Menu";
 import NavActive from "./NavActive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function AppLayout() {
   return (
@@ -26,11 +26,11 @@ export default function AppLayout() {
               </Link>
             </div>
             {/* Alternative */}
-            {/* <div className='fixed w-full px-2 py-2 text-right bg-background/60 z-50'>
+            <div className='fixed w-full px-2 py-2 text-right bg-background/60 z-50'>
               <Link to={"/menu"}>
                 <FontAwesomeIcon icon={faBars} className='text-3xl' />
               </Link>
-            </div> */}
+            </div>
             {/* Mobile */}
             <NavActive />
           </div>
